@@ -1,0 +1,15 @@
+// Fonts
+//@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+//@import 'bootstrap/scss/bootstrap';
+@import "node_modules/select2/src/scss/core";
+@import "bootstrap/scss/bootstrap.scss";
+
+.ltr {
+    @import "../node_modules/bootstrap/scss/bootstrap";
+}

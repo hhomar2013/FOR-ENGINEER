@@ -1,0 +1,131 @@
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header text-center bg-dark text-white">{{__('Career Type')}}</div>
+                    <div class="card-body">
+                        @include('message')
+                        <div class="row shadow p-3 mb-3 bg-body rounded">
+                            {{-- <div wire:poll.keep-alive>
+                                Current time: {{ now() }}
+                            </div> --}}
+
+
+                            <div class=" col-lg-3 col-md-6 col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-dark text-white">{{ __('t.pages') }}</span>
+                                        <select class="form-select-sm" wire:model="numbers" wire:change="pages_num">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                        </select>
+
+                                    </div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{--                                    <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas"--}}
+                                    {{--                                            data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">--}}
+                                    {{--                                        <i class="fa fa-filter"></i> {{ __('t.filter') }}</button>--}}
+                                </div>
+                                <hr>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <div class="input-group-append">
+                                    <span class="input-group-text bg-dark text-white"><i class="fa fa-search"></i></span>
+                                    <input type="text" name="" id="search" class="form-control" wire:model="search"/>
+
+                                </div>
+                                <hr>
+                            </div><!--End of search  -->
+
+                        </div>
+
+
+
+                        @if($update)
+                            @include('livewire.admin.CareersType.update-careerstype')
+                        @else
+                            @include('livewire.admin.CareersType.create-careerstype')
+                        @endif
+
+                        <div class="table-responsive-sm">
+                            <table class="table table-bordered  table-hover table-sm text-center ">
+                                <thead>
+                                <tr class="bg-dark text-white" >
+                                    <th scope="col"><i class="fa fa-list"></i></th>
+                                    <th scope="col"><i class="fa fa-sitemap"></i></th>
+                                    <th scope="col"><i class="fa fa-cogs"></i> {{__('Status')}}</th>
+                                    <th scope="col"><i class="fa fa-clock"></i> {{__('t.date')}}</th>
+                                    <th scope="col"><i class="fa fa-cogs"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i =1; $ii =1; ?>
+                                @forelse($career_type as $val)
+                                    <tr>
+                                        <th scope="row">{{$ii ++}}</th>
+                                        <td> {{$val->name}}</td>
+                                        <td>
+                                            @livewire('switcher', ['model' => $val, 'field' => 'status'], key($val->id))
+                                        </td>
+                                        <td>{{\Carbon\Carbon::parse($val->created_at)->getTranslatedDayName()}}
+                                            {{\Carbon\Carbon::parse($val->created_at)->format('Y-m-d')}}
+                                        </td>
+                                        <td>
+                                            <button class="btn  btn-sm " wire:click="edit({{ $val->id }})"><i class="fas fa-edit text-primary"></i></button> &nbsp;
+                                            <button class="btn btn-sm " onclick="delete_ct({{ $val->id }})"><i class="fas fa-trash text-danger"></i></button>
+
+                                        </td>
+                                    </tr>
+
+                                @empty
+                                    <tr>
+                                        <td class="text-danger" colspan="5" scope="row">{{__('There is no data')}}</td>
+                                    </tr>
+                                @endforelse
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <span class="p-3">{{$career_type->links()}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    function delete_ct($id){
+        // if(confirm("Are you sure to delete this item ?")){
+        //     window.livewire.emit('delete_cat',$id);
+        // }
+
+        Swal.fire({
+            title: '{{__('Are you sure?')}}',
+            // text: "Are you sure to delete this item ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '{{__('Yes, delete it!')}}',
+            cancelButtonText: '{{__('Cancel')}}'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.livewire.emit('destroy',$id);
+            }
+        })
+    }
+
+</script>
