@@ -26,7 +26,26 @@
         <!-- Template Stylesheet -->
         @if(LaravelLocalization::getCurrentLocale() =='en') <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">  @else<link href="{{ asset('asset/css/style_rtl.css') }}" rel="stylesheet"> @endif
 {{--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">--}}
+        <style>
+            .whats-app {
+                    position: fixed;
+                    width: 60px;
+                    height: 60px;
+                    bottom: 40px;
+                    right: 15px;
+                    background-color: #25d366;
+                    color: #FFF;
+                    border-radius: 50px;
+                    text-align: center;
+                    font-size: 30px;
+                    box-shadow: 2px 2px 3px #999;
+                    z-index: 100;
+                }
 
+                .my-float {
+                    margin-top: 16px;
+                }
+                        </style>
         @livewireStyles
         @yield('css')
     </head>
@@ -50,7 +69,9 @@
             <!-- Footer Start -->
             @include('site_tools.footer')
             <!-- Footer End -->
-
+            <a  class="whats-app" href="https://wa.me/+966566626520" target="_blank">
+                <i class="fab fa-whatsapp my-float"></i>
+            </a>
             <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
         </div>
 
