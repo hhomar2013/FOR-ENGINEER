@@ -81,9 +81,6 @@
                 <i class="fab fa-whatsapp my-float"></i>
             </a>
 
-            <a href="">
-                <i class="material-icons">games</i>
-            </a>
             <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
         </div>
 

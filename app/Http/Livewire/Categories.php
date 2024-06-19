@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Storage;
 
 class Categories extends Component
 {
@@ -17,7 +18,7 @@ class Categories extends Component
     public $update = false;
     public $delete = false;
     public  $listeners =['delete_ct'=>'destroy'];
-
+    public $icons,$commenttext;
 
 
     public function pages_num()
@@ -76,7 +77,12 @@ class Categories extends Component
         $this->validate([
             'name'=>'required'
         ]);
-        \App\Models\categories::create(['name'=> $this->name]);
+        \App\Models\categories::create([
+            'name'=> $this->name,
+            'icone'=>'Icons.'.$this->icons,
+            'info'=>$this->commenttext
+
+        ]);
         session()->flash('message', __('t.Add_message'));
         $this->name = '';
     }
@@ -87,6 +93,9 @@ class Categories extends Component
             ->whereNull('parent_id')
             ->where('name','like','%'.$this->search.'%')
             ->latest()->paginate($this->numbers);
-        return view('livewire.admin.categories.index',['categories'=>$categories])->layout('layouts.admin1');
+            $icon= config('material_icons.icons');
+
+            // dd($icon);
+        return view('livewire.admin.categories.index',compact('categories','icon'))->layout('layouts.admin1');
     }
 }

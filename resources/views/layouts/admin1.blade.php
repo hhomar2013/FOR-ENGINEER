@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/css/select2.min.css" />
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/js/select2.full.min.js"></script> --}}
     <title>{{config('app.name') .' | ' . $title}}</title>
 
     <!-- Custom fonts for this template-->
@@ -112,6 +114,7 @@
 
 
 
+
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('asset/admin/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('asset/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -127,13 +130,16 @@
 {{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>--}}
 {{--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>--}}
 {{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>--}}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/js/select2.min.js"></script>
 <script src="{{asset('asset/site/bootstrap.bundle.min.js')}}"></script>
 
 
 <script src="{{asset("asset/admin/js/sweetalert2@11.js")}}"></script>
-
+<script  src="{{asset("asset/js/ckeditor5.js")}}"></script>
 <script>
+
+
+
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',

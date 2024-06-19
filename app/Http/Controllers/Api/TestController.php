@@ -34,4 +34,13 @@ class TestController extends Controller
         return $this->apiResponse($categories,'Done Show Categories','200');
     }
 
+
+    public function categories_show($id)
+    {
+        $categories = CaregoriesResource::collection(categories::query()->where('id','=',$id)->get());
+        return $this->apiResponse($categories,'Done Show Categories','200');
+    }
+
+
+
 }

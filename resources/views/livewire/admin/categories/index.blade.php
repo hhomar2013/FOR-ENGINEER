@@ -49,7 +49,6 @@
 
 
                         @if($update)
-
                             @include('livewire.admin.categories.update-categories')
                         @else
                             @include('livewire.admin.categories.create-categories')

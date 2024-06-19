@@ -1,21 +1,23 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\EmailController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MoyasarController;
-use App\Http\Controllers\paymobController;
-use App\Http\Controllers\PayPalController;
+use App\Mail\CompanyMail;
+use App\Http\Livewire\Spa;
 use App\Http\Controllers\Paytab;
+use App\Http\Livewire\Site\Services;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\siteController;
-use App\Http\Livewire\Site\Services;
-use App\Http\Livewire\Spa;
-use App\Mail\CompanyMail;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\paymobController;
+use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\MoyasarController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------

@@ -36,6 +36,7 @@ Route::get('/',[TestController::class,'index'])->name('test-users');
 //});
 Route::get('/show/{id}',[TestController::class,'show'])->name('test-users-show');
 Route::get('/categories',[TestController::class,'categories'])->name('categories');
+Route::get('/categories/show/{id}',[TestController::class,'categories_show'])->name('categories.show');
 Route::middleware(['auth.web.or.api'])->group(function () {
 
 

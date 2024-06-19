@@ -34,12 +34,12 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; <a href="#">{{ config('app.name') }}</a>, All Right Reserved {{ date('Y') }}.</p>
+                    <p>&copy; <a href="#">{{ config('app.name') }}</a>, All Right Reserved {{ date('Y') }}. V 1.0</p>
                 </div>
 
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                 <div class="col-md-6">
-                    <p>developed by <a target="blank" href="https://www.facebook.com/mtg.tech.egy">Mahgoub Tech</a></p>
+                    <p>developed by <a target="blank" href="https://www.facebook.com/mtg.tech.egy">Mahgoub Tech</a> </p>
                 </div>
             </div>
         </div>

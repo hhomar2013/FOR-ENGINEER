@@ -17,6 +17,8 @@ class CaregoriesResource extends JsonResource
         return [
             'id'=>$this->id,
             'name'=>$this->name,
+            'icone'=>$this->icone,
+            'info'=>$this->info,
         ];
     }
 }

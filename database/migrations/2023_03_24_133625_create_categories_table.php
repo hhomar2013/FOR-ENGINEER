@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('icone')->default('home');
+            $table->text('info')->nullable();
             $table->boolean('parent_id')->default(null)->nullable();
             $table->string('status')->default(0);
             $table->softDeletes();
