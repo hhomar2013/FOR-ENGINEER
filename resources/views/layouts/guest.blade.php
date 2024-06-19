@@ -6,6 +6,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="{{ config('app.name') }}" name="keywords">
         <meta content="{{ config('app.name') }}" name="description">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Favicon -->
         <link href="{{ asset('asset/img/for4.png') }}" rel="icon">
@@ -45,7 +46,9 @@
                 .my-float {
                     margin-top: 16px;
                 }
-                        </style>
+
+
+         </style>
         @livewireStyles
         @yield('css')
     </head>
@@ -66,14 +69,26 @@
              @yield('content')
             <!-- Content end -->
 
+            <!-- HTML to write -->
+                {{-- <a href="#" data-bs-toggle="tooltip">Hover over me</a>
+
+                <div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner">Omar</div></div> --}}
+
             <!-- Footer Start -->
             @include('site_tools.footer')
             <!-- Footer End -->
             <a  class="whats-app" href="https://wa.me/+966566626520" target="_blank">
                 <i class="fab fa-whatsapp my-float"></i>
             </a>
+
+            <a href="">
+                <i class="material-icons">games</i>
+            </a>
             <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
         </div>
+
+
+
 
         <!-- JavaScript Libraries -->
 
@@ -115,6 +130,12 @@
         @livewireScripts
         @include('message')
         @yield('js')
+        <script>
+            // $(function () {$('[data-toggle="tooltip"]').tooltip('toggle')})
+            $(document).ready(function(){
+                $('[data-bs-toggle="tooltip"]').tooltip();
+            });
 
+        </script>
     </body>
 </html>

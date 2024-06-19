@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TestResource;
+use App\Http\Resources\CaregoriesResource;
+use App\Http\Resources\UsersResource;
 use App\Models\categories;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,14 +23,14 @@ class TestController extends Controller
     {
         $user  = User::query()->find($id);
         if($user){
-            return $this->apiResponse(new TestResource($user),'Done Show User','200');
+            return $this->apiResponse(new UsersResource($user),'Done Show User','200');
         }
         return $this->apiResponse(null,'The User Not Found!!', '404');
     }
 
     public function categories()
     {
-        $categories = TestResource::collection(categories::query()->where('parent_id','!=',null)->get());
+        $categories = CaregoriesResource::collection(categories::query()->where('parent_id','!=',null)->get());
         return $this->apiResponse($categories,'Done Show Categories','200');
     }
 
