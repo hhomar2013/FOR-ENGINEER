@@ -47,7 +47,7 @@ class HomeController extends Controller
         $categories = categories::query()->where('status',1)
         // ->whereNotNull('parent_id')
         ->get();
-        return view('welcome',compact('categories'));
+        return view('welcome1',compact('categories'));
     }
 
     public function contact()
