@@ -9,7 +9,7 @@
   <meta content="{{ config('app.name') }}" name="description">
 
   <!-- Favicons -->
-  <link href="{{ asset('asset/img/logo.png') }}" rel="icon">
+  <link href="{{ asset('asset/img/for4.png') }}" rel="icon">
   {{-- <link href="asset/img/apple-touch-icon.png" rel="apple-touch-icon"> --}}
 
   <!-- Fonts -->
@@ -35,6 +35,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
      <link href="{{ asset('asset/css/main_rtl.css') }}" rel="stylesheet"> @endif
 
+
+     <style>
+        .whats-app {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 15px;
+                background-color: #25d366;
+                color: #FFF;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index: 100;
+            }
+
+            .my-float {
+                margin-top: 16px;
+            }
+
+
+     </style>
+
 </head>
 
 <body class="index-page">
@@ -45,7 +69,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="asset/img/logo.png" alt=""> -->
-        <h1 class="sitename">{{ config('app.name') }}</h1> <span>.</span>
+        <h1 class="sitename">{{ __('For Engineers')}}</h1> <span>.</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -105,7 +129,7 @@
                 <p>
                     {{ __('We Are Professional To Achieve Professional Services') }}
                 </p>
-              <a href="#get-started" class="btn-get-started">Get Started</a>
+              {{-- <a href="#get-started" class="btn-get-started">Get Started</a> --}}
             </div>
           </div>
         </div>
@@ -1050,12 +1074,14 @@
     </div>
 
   </footer>
-
+  <a  class="whats-app" href="https://wa.me/+966566626520" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+    </a>
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  {{-- <div id="preloader"></div> --}}
+  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
