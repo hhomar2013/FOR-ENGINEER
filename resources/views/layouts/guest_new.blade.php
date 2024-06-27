@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>{{ config('app.name') }} | {{ $title }}</title>
+  <title>{{ __('For Engineer') }} | {{ $title }}</title>
   <meta content="{{ config('app.name') }}" name="keywords">
   <meta content="{{ config('app.name') }}" name="description">
 
@@ -13,9 +13,6 @@
   {{-- <link href="asset/img/apple-touch-icon.png" rel="apple-touch-icon"> --}}
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{ asset('asset/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -26,8 +23,17 @@
   <link href="{{ asset('asset/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="{{ asset('asset/css/main.css') }}" rel="stylesheet">
-  @if(LaravelLocalization::getCurrentLocale() =='en') <link href="{{ asset('asset/css/main.css') }}" rel="stylesheet">  @else<link href="{{ asset('asset/css/main_rtl.css') }}" rel="stylesheet"> @endif
+  {{-- <link href="{{ asset('asset/css/main.css') }}" rel="stylesheet"> --}}
+  @if(LaravelLocalization::getCurrentLocale() =='en')
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   <link href="{{ asset('asset/css/main.css') }}" rel="stylesheet">
+     @else
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+     <link href="{{ asset('asset/css/main_rtl.css') }}" rel="stylesheet"> @endif
 
 </head>
 
@@ -44,11 +50,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html" class="active">{{ __('t.home') }}</a></li>
+          <li><a href="about.html">{{ __('t.about') }}</a></li>
+          <li><a href="services.html">{{ __('t.service') }}</a></li>
+          <li><a href="projects.html">{{ __('Service Providers') }}</a></li>
+          <li><a href="blog.html">{{ __('Blogs') }}</a></li>
+          <li><a href="contact.html">{{ __('t.contact') }}</a></li>
           <li class="dropdown">
             {{-- <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> --}}
             @if (LaravelLocalization::getCurrentLocale() == 'ar')
@@ -62,17 +69,15 @@
             </a>
             @endif
             <ul>
-             {{-- <li></li><a href="#">Dropdown 1</a></li> --}}
               @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     @if ($localeCode == 'en')
                     <li><a class="active" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-    {{--                                    <i class="fas fa-globe-americas"></i>--}}
+
                         <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
                         {{ $properties['native'] }}
                     </a></li>
                     @else
                     <li><a class="active" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-    {{--                                    <i class="fas fa-globe-africa"></i> --}}
                         <img src="{{asset('asset/img/flags/sa.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
                         {{ $properties['native'] }}
                     </a></li>
@@ -80,7 +85,6 @@
             @endforeach
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -93,12 +97,14 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-      <div class="info d-flex align-items-center">
+      <div class="info d-flex align-items-center" dir="ltr">
         <div class="container">
           <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-6 text-center">
-              <h2>Welcome to UpConstruction</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <h2>{{ __('Welcome To') .' '. __('For Engineer Platform') }}</h2>
+                <p>
+                    {{ __('We Are Professional To Achieve Professional Services') }}
+                </p>
               <a href="#get-started" class="btn-get-started">Get Started</a>
             </div>
           </div>
@@ -199,10 +205,11 @@
     <section id="constructions" class="constructions section">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      {{-- <div class="container section-title" data-aos="fade-up">
         <h2>Constructions</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      </div --}}
+      ><!-- End Section Title -->
 
       <div class="container">
 
