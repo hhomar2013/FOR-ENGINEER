@@ -13,6 +13,7 @@ class Categories extends Component
     public $numbers = 5;
     public $search;
     public $name;
+    public $name_en;
     public $update_id;
     public $category_id;
     public $update = false;
@@ -78,13 +79,17 @@ class Categories extends Component
             'name'=>'required'
         ]);
         \App\Models\categories::create([
-            'name'=> $this->name,
-            'icone'=>'Icons.'.$this->icons,
+            'name'=> [
+                'en' =>$this->name_en,
+                'ar' => $this->name,
+            ],
+            'icone'=>$this->icons,
             'info'=>$this->commenttext
 
         ]);
         session()->flash('message', __('t.Add_message'));
         $this->name = '';
+        $this->reset();
     }
 
     public function render()

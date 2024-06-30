@@ -86,6 +86,8 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
             'Symfony\\Component\\Console\\' => 26,
             'StellaMaris\\Clock\\' => 18,
             'Srmklive\\PayPal\\' => 16,
+            'Spatie\\Translatable\\' => 20,
+            'Spatie\\LaravelPackageTools\\' => 27,
             'Spatie\\LaravelIgnition\\' => 23,
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
@@ -328,6 +330,14 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'Srmklive\\PayPal\\' => 
         array (
             0 => __DIR__ . '/..' . '/srmklive/paypal/src',
+        ),
+        'Spatie\\Translatable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-translatable/src',
+        ),
+        'Spatie\\LaravelPackageTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-package-tools/src',
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
@@ -625,6 +635,7 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Http\\Livewire\\ContactMassageListComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/ContactMassageListComponent.php',
         'App\\Http\\Livewire\\ContactsComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/ContactsComponent.php',
         'App\\Http\\Livewire\\Dashboard' => __DIR__ . '/../..' . '/app/Http/Livewire/Dashboard.php',
+        'App\\Http\\Livewire\\NewNewsEmail' => __DIR__ . '/../..' . '/app/Http/Livewire/NewNewsEmail.php',
         'App\\Http\\Livewire\\NotificationList' => __DIR__ . '/../..' . '/app/Http/Livewire/NotificationList.php',
         'App\\Http\\Livewire\\OrderCart' => __DIR__ . '/../..' . '/app/Http/Livewire/OrderCart.php',
         'App\\Http\\Livewire\\OrderComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/OrderComponent.php',
@@ -643,7 +654,9 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Http\\Livewire\\UserOrdersComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/UserOrdersComponent.php',
         'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\AuthenticateWebOrApi' => __DIR__ . '/../..' . '/app/Http/Middleware/AuthenticateWebOrApi.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
+        'App\\Http\\Middleware\\JWTMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/JWTMiddleware.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -651,7 +664,9 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Resources\\CaregoriesResource' => __DIR__ . '/../..' . '/app/Http/Resources/CaregoriesResource.php',
         'App\\Http\\Resources\\TestResource' => __DIR__ . '/../..' . '/app/Http/Resources/TestResource.php',
+        'App\\Http\\Resources\\UsersResource' => __DIR__ . '/../..' . '/app/Http/Resources/UsersResource.php',
         'App\\Mail\\CompanyMail' => __DIR__ . '/../..' . '/app/Mail/CompanyMail.php',
         'App\\Mail\\ContactMessageMail' => __DIR__ . '/../..' . '/app/Mail/ContactMessageMail.php',
         'App\\Mail\\OrderComment' => __DIR__ . '/../..' . '/app/Mail/OrderComment.php',
@@ -663,6 +678,7 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Models\\CareersType' => __DIR__ . '/../..' . '/app/Models/CareersType.php',
         'App\\Models\\Company' => __DIR__ . '/../..' . '/app/Models/Company.php',
         'App\\Models\\ContactMessage' => __DIR__ . '/../..' . '/app/Models/ContactMessage.php',
+        'App\\Models\\NewNewsEmails' => __DIR__ . '/../..' . '/app/Models/NewNewsEmails.php',
         'App\\Models\\NotificationList' => __DIR__ . '/../..' . '/app/Models/NotificationList.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\OrderComments' => __DIR__ . '/../..' . '/app/Models/OrderComments.php',
@@ -5701,6 +5717,16 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'Spatie\\LaravelIgnition\\Support\\StringComparator' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/StringComparator.php',
         'Spatie\\LaravelIgnition\\Views\\BladeSourceMapCompiler' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/BladeSourceMapCompiler.php',
         'Spatie\\LaravelIgnition\\Views\\ViewExceptionMapper' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/ViewExceptionMapper.php',
+        'Spatie\\LaravelPackageTools\\Commands\\InstallCommand' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/InstallCommand.php',
+        'Spatie\\LaravelPackageTools\\Exceptions\\InvalidPackage' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Exceptions/InvalidPackage.php',
+        'Spatie\\LaravelPackageTools\\Package' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Package.php',
+        'Spatie\\LaravelPackageTools\\PackageServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/PackageServiceProvider.php',
+        'Spatie\\Translatable\\Events\\TranslationHasBeenSetEvent' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Events/TranslationHasBeenSetEvent.php',
+        'Spatie\\Translatable\\Exceptions\\AttributeIsNotTranslatable' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Exceptions/AttributeIsNotTranslatable.php',
+        'Spatie\\Translatable\\Facades\\Translatable' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Facades/Translatable.php',
+        'Spatie\\Translatable\\HasTranslations' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/HasTranslations.php',
+        'Spatie\\Translatable\\Translatable' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/Translatable.php',
+        'Spatie\\Translatable\\TranslatableServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-translatable/src/TranslatableServiceProvider.php',
         'Srmklive\\PayPal\\Facades\\PayPal' => __DIR__ . '/..' . '/srmklive/paypal/src/Facades/PayPal.php',
         'Srmklive\\PayPal\\PayPalFacadeAccessor' => __DIR__ . '/..' . '/srmklive/paypal/src/PayPalFacadeAccessor.php',
         'Srmklive\\PayPal\\Providers\\PayPalServiceProvider' => __DIR__ . '/..' . '/srmklive/paypal/src/Providers/PayPalServiceProvider.php',

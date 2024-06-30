@@ -50,9 +50,18 @@ class HomeController extends Controller
         return view('welcome1',compact('categories'));
     }
 
+    public function about(){
+        return view('site_v2.about_index');
+    }
+
     public function contact()
     {
         return view('contact');
+    }
+
+    public function SeriveShow($id){
+        $service = categories::query()->findOrFail($id);
+        return view('site_v2.service',compact('service'));
     }
 
     public function careers()

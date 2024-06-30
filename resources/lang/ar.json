@@ -1,4 +1,6 @@
 {
+    "All Rights Reserved"  :"كل الحقوق محفوظة",
+    "Designed by" :"صمم بواسطة",
     "For Engineer Platform" : "منصة للمهندسين" ,
     "For Engineers" : "للمهندسين",
     "Welcome To" : "أهلا بك في",
@@ -6,7 +8,7 @@
     "To Achieve Your Dream" : "لتحقيق حلمك",
     "Professional Service" : "خدمة أحترافية",
     "We Serve Your Life": "نحن نخدم حياتك",
-    "We Are Professional To Achieve Professional Services":"نحن متخصصون لتحقيق خدمات أحترافية مع نخبه من المكاتب الهندسة و المهندسون المستقلون المعتمدون من الهيئة الهندسية السعودية",
+    "We specialize in providing professional services with an elite group of engineering offices and independent engineers accredited by the Saudi Engineering Authority":"نحن متخصصون لتحقيق خدمات أحترافية مع نخبه من المكاتب الهندسة و المهندسون المستقلون المعتمدون من الهيئة الهندسية السعودية",
     "Why us": "لماذا نحــن",
     "Verify Email Address": "تأكيد عنوان بريدك الإلكتروني",
     "Click the button below to verify your email address.": "انقر فوق الزر أدناه للتحقق من عنوان البريد الإلكتروني الخاص بك.",
@@ -154,8 +156,19 @@
     "To" : "إلى",
     "Accounting" : "الحسابات",
     "Service Providers":"مقدمين الخدمات",
-    "Blogs":"المقالات",
-
+    "Blogs":"المدونة",
+    "About" : "معلومات عنا",
+    "Since" : "منذ عام",
+    "Services" :"خدماتنا",
+    "Don't hesitate to request your service with us" :"لا تتردد في طلب خدمتك معنا",
+    "Read more" : "إقرأ المزيد",
+    "Profile" :"الملف الشخصي",
+    "Watch Video":"شاهد الفيديو",
+    "Team" :"فريق العمل",
+    "We specialize in making your dream come true (we are an intermediary website that specializes in providing engineering and technical services and consultations to beneficiaries through specialized experts in the fields of engineering sectors and human resources services)" :"نحن متخصصون لتحقيق حلمك ( نحن موقع ألكتروني وسيط يختص في تقديم الخدمات و الإستشارات الهندسة و الفنية للمستفيدين عبر خبراء متخصصين في مجالات القطاعات الهندسية و خدمات الموارد البشرية)",
+    "Stats" :"الإحصائيات",
+    "Projects":"المشاريع",
+    "Hours Of Support":"ساعات من الدعم",
 
 
 
@@ -170,6 +183,7 @@
     "Forgot Password": "نسيت كلمة المرور الخاصة بك؟ ",
     "Forgot your password?": "نسيت كلمة المرور الخاصة بك؟ ",
     "Log In": "تسجيل الدخول",
+    "Register" : "إنشاء حساب",
     "Logout": "تسجيل الخروج",
     "Password": "كلمة المرور",
     "Remember me": "تذكرني",
@@ -511,6 +525,7 @@
     "Yes": "نعم",
     "No": "لا",
     "Name": "الاسم",
+    "English Name" :"الاسم باللغة الإنجليزية",
     "Action Initiated By": "بدأ بواسطة",
     "Action Target": "الهدف",
     "Action Status": "الحالة",

@@ -37,7 +37,9 @@ Route::group(
 
 //        Route::get('/', function () {return view('welcome');});
         Route::get('/',[HomeController::class,'index_customer'])->name('site.index');
+        Route::get('/about',[HomeController::class,'about'])->name('site.about');
         Route::get('/contact',[HomeController::class,'contact'])->name('site.contact');
+        Route::get('/service/show/{id}',[HomeController::class,'SeriveShow'])->name('site.service.show');
 //        Auth::routes(['verify'=>true]);
         Auth::routes();
         Route::get('/cp',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');

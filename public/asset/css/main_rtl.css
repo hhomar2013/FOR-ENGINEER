@@ -1799,6 +1799,8 @@ section,
   margin: 0 80px;
   border-radius: 50%;
   overflow: hidden;
+  height: 240px;
+  width: 240px;
   position: relative;
 }
 
