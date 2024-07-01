@@ -95,6 +95,54 @@
 
     </section><!-- /Stats Counter Section -->
 
+    <!-- Alt Services Section -->
+    <section id="alt-services" class="alt-services section">
+
+        <div class="container">
+
+          <div class="row justify-content-around gy-4">
+            <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/alt-services.jpg" alt=""></div>
+
+            <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+              <h3>{{ __('Vision and mission') }}</h3>
+              <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-easel flex-shrink-0"></i>
+                <div>
+
+                  <p>{{ __('Ensuring justice and transparency are achieved and working to provide and develop all advisory services for citizens and residents.') }}</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-chat-quote flex-shrink-0"></i>
+                <div>
+                  <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
+                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+                <i class="bi bi-brightness-high flex-shrink-0"></i>
+                <div>
+                  <h4><a href="" class="stretched-link">Dine Pad</a></h4>
+                  <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+                <i class="bi bi-brightness-high flex-shrink-0"></i>
+                <div>
+                  <h4><a href="" class="stretched-link">Tride clov</a></h4>
+                  <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non aspernatur odit amet. Et eligendi</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+            </div>
+          </div>
+
+        </div>
+
+        </section><!-- /Alt Services Section -->
 
 
     <!-- Team Section -->
