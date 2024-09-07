@@ -17,6 +17,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MoyasarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -31,6 +32,10 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
+        Route::get('/clear-cache', function() {
+            $exitCode = Artisan::call('optimize:clear');
+            // return what you want
+        });
 
         Route::get('/storage-link',function ()
         {$targetFolder = storage_path('app/public');$linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';symlink($targetFolder,$linkFolder);});

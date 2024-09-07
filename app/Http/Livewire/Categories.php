@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +20,7 @@ class Categories extends Component
     public $update = false;
     public $delete = false;
     public  $listeners =['delete_ct'=>'destroy'];
-    public $icons,$commenttext;
+    public $icons, $commenttext ,$commenttexteng;
 
 
     public function pages_num()
@@ -40,11 +41,12 @@ class Categories extends Component
        $this->update = true;
     }
 
-    public function cancel()
+    public function cancel(Request $request)
     {
         $this->name = null;
         $this->update_id = null;
         $this->update = false;
+        $this->reset();
     }
 
     public function update()
@@ -84,11 +86,15 @@ class Categories extends Component
                 'ar' => $this->name,
             ],
             'icone'=>$this->icons,
-            'info'=>$this->commenttext
+            'info'=> [
+                'ar'=>$this->commenttext,
+                'en'=>$this->commenttexteng
+            ]
 
         ]);
         session()->flash('message', __('t.Add_message'));
         $this->name = '';
+        $this->commenttext = '';
         $this->reset();
     }
 

@@ -1,32 +1,14 @@
 @section('css')
-{{-- <style>
-    .truncate-overflow {
-    --max-lines: 3;
-    position: relative;
-    max-height: calc(var(--lh) * var(--max-lines));
-    overflow: hidden;
-    padding-right: 1rem;
-  }
-  .truncate-overflow::before {
-    position: absolute;
-    content: "...";
-    bottom: 0;
-    right: 0;
-  }
-  .truncate-overflow::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 1rem;
-    height: 1rem;
-    background: white;
-  }
-</style> --}}
+    <style>
+        .grid-item{
+            box-align: right;
+        }
+    </style>
 @endsection
 
 @forelse ($query as $val)
     @forelse ($val->child as $item)
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-lg-3 col-md-6 element-item grid-item {{ $val->id }}" data-aos="fade-up" data-aos-delay="100">
         <div class="service-item  position-relative">
             <p>{{ $val->name }}</p>
         <div class="icon" >

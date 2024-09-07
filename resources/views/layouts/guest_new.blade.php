@@ -14,7 +14,6 @@
 
   <!-- Fonts -->
 
-
   <!-- Vendor CSS Files -->
   <link href="{{ asset('asset/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('asset/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -79,6 +78,8 @@
   <script src="{{ asset('asset/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('asset/vendor/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('asset/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="{{ asset('asset/js/main1.js') }}"></script>

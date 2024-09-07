@@ -166,4 +166,32 @@
    */
   new PureCounter();
 
+
+
+
+
+  var $grid = $('.grid').isotope({
+    itemSelector: '.element-item',
+    layoutMode: 'fitRows',
+
+});
+
+// filter items on button click
+$('.button-group').on('click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
+    $grid.isotope({ filter: filterValue });
+
+      // Remove active class from all buttons
+
+      $('.button-group button').removeClass('btn-warning');
+
+      // Add active class to the clicked button
+      $(this).addClass('btn-warning');
+});
+
+
+
+
 })();
+
+

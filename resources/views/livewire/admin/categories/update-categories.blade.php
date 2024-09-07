@@ -18,7 +18,7 @@
                     </select>
                     <br>
                     <button class="btn btn-warning" wire:click.prevent="update()" >{{__('t.save')}}</button>
-                    <button class="btn btn-secondary" wire:click.prevent="cancel" >{{__('Cancel')}}</button>
+                    <a href={{ route('admin.categories') }} class="btn btn-secondary">{{__('Cancel')}}</a>
                 </div>
 
 

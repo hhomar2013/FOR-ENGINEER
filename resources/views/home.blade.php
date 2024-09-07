@@ -3,6 +3,6 @@
 @section('content')
 {{--    carousel--}}
 @livewire('site-service')
-    @include('message')
+@include('message')
 @endsection
 

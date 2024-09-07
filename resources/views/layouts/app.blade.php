@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} | {{ $title }}</title>
+    <title>{{ __('For Engineers') }} | {{ $title }}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Fonts -->
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
@@ -15,11 +15,12 @@
 
 {{--    <link rel="stylesheet" href="{{ asset('asset/site/app-6bbc4f6b.css') }}">--}}
 {{--    <link rel="stylesheet" href="{{ asset('asset/site/app-29170f3c.css.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('asset/site/bootstrap.min.css') }}">--}}
+   {{-- <link rel="stylesheet" href="{{ asset('asset/site/bootstrap.min.css') }}"> --}}
     <!-- Scripts -->
 {{--     @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
-{{--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">--}}
-    <link rel="stylesheet" href="{{asset('asset/site/bootstrap.min.css')}}">
+<link href="{{ asset('asset/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{asset('asset/site/bootstrap.min.css')}}"> --}}
 
 </head>
 <style>
@@ -33,7 +34,13 @@
 
     .login-card{
         margin-top:230px;padding: 30px;
+
     }
+
+
+
+
+
 
     @media (max-width: 767px) {
     body{
@@ -51,7 +58,7 @@
 
 }
 </style>
-<body class="bg-dark text-white">
+<body class="bg-white text-dark">
     <div id="app" >
         <nav class="navbar navbar-expand-md">
             <div class="container">
@@ -98,7 +105,7 @@
 {{--                                    @endforeach--}}
 {{--                                </ul>--}}
 {{--                              </div>--}}
-{{--                            </div>--}}
+                           {{-- </div> --}}
 
 
                         </li>

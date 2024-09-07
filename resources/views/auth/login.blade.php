@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container" >
-    <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7 login-card" style="">
+    <div class="row justify-content-center ">
+        <div class="col-lg-5 col-md-7 login-card " style="">
 {{--            <div class="card">--}}
 {{--                <div class="card-header text-center bg-transparent">{{ __('t.welcome') }}</div>--}}
 
@@ -60,8 +60,12 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4 ">
-                                    <button type="submit" class="btn btn-warning ">
-                                        {{ __('t.signin') }}
+                                    <br>
+                                    <a href="/" class="btn btn-danger shadow text-white p-2 w-25 rounded-pill">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </a>
+                                    <button type="submit" class="btn btn-warning shadow text-white p-2 w-50 rounded-pill">
+                                         {{ __('t.signin') }}
                                     </button>
                                     <br>
                                     @if (Route::has('login'))

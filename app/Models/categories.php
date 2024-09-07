@@ -13,7 +13,7 @@ class categories extends Model
 {
     use HasFactory,SoftDeletes,HasTranslations;
     protected $guarded=[];
-    public $translatable = ['name'];
+    public $translatable = ['name','info'];
 
     // One level child
     public function child() {

@@ -18,13 +18,15 @@
 
           <li class="dropdown">
             {{-- <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> --}}
+            {{-- <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> --}}
             @if (LaravelLocalization::getCurrentLocale() == 'ar')
-            {{-- <a href=""><i class="fa-solid fa-language"> </i> العربية --}}
+            <a>
+                {{-- <i class="bi bi-chevron-down toggle-dropdown"></i> العربية --}}
                 <img src="{{asset('asset/img/flags/sa.png')}}"  class="rounded-circle" style="width: 25px; height: 25px;" alt="">
             </a>
             @else
-            <a href="">
-                               {{-- <i class="fa-solid fa-language"> </i> EN --}}
+            <a >
+                {{-- <i class="bi bi-chevron-down toggle-dropdown"></i> EN --}}
                 <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 25px; height: 25px;" alt="">
             </a>
             @endif
@@ -46,7 +48,7 @@
             </ul>
           </li>
         @guest
-        <li><a href="" class="">{{ __('Log In') }}</a></li>
+        <li><a href="{{ route('login') }}" class="">{{ __('Log In') }}</a></li>
         <li><a href="" class="">{{ __('Register') }}</a></li>
         @else
         <li class="dropdown"><a href="#">
