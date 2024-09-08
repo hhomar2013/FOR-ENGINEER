@@ -17,6 +17,9 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MoyasarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Livewire\Sitev2\AboutComponent;
+use App\Http\Livewire\Sitev2\BlogComponent;
+use App\Http\Livewire\Sitev2\LandingPage;
 use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -41,8 +44,10 @@ Route::group(
         {$targetFolder = storage_path('app/public');$linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';symlink($targetFolder,$linkFolder);});
 
 //        Route::get('/', function () {return view('welcome');});
-        Route::get('/',[HomeController::class,'index_customer'])->name('site.index');
-        Route::get('/about',[HomeController::class,'about'])->name('site.about');
+        // Route::get('/',[HomeController::class,'index_customer'])->name('site.index');
+        Route::get('/', LandingPage::class)->name('site.index');
+        Route::get('/blog', BlogComponent::class)->name('site.blog');
+        Route::get('/about',AboutComponent::class)->name('site.about');
         Route::get('/contact',[HomeController::class,'contact'])->name('site.contact');
         Route::get('/service/show/{id}',[HomeController::class,'SeriveShow'])->name('site.service.show');
 //        Auth::routes(['verify'=>true]);

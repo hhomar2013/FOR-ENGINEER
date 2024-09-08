@@ -589,5 +589,6 @@
     ":resource Details: :title": ":resource تفاصيل: :title",
     "Fee":"مصاريف",
     "You're subscribed in for engineer new news" : "أنت الأن مشترك في خدمة النشرة الإخبارية ",
-    "Icons":"أيقونات"
+    "Icons":"أيقونات",
+    "Under development" :"تحت التطوير"
 }

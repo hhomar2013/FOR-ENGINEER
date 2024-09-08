@@ -79,10 +79,4 @@
 
   </footer>
 
-  <a  class="whats-app" href="https://wa.me/+966566626520" target="_blank">
-    <i class="fab fa-whatsapp my-float"></i>
-  </a>
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <!-- Preloader -->
-  <div id="preloader"></div>
+

@@ -13,7 +13,7 @@
           <li><a href="{{ route('site.about') }}" class="{{ request()->is(app()->getLocale().'/about') ? 'active' : '' }}">{{ __('About') }}</a></li>
           <li><a href="">{{ __('Services') }}</a></li>
           <li><a href="projects.html">{{ __('Service Providers') }}</a></li>
-          <li><a href="blog.html">{{ __('Blogs') }}</a></li>
+          <li><a href="{{ route('site.blog') }}">{{ __('Blogs') }}</a></li>
           <li><a href="contact.html">{{ __('t.contact') }}</a></li>
 
           <li class="dropdown">

@@ -3,7 +3,7 @@
 
       <div class="container">
 
-    <div class="row position-relative">
+        <div class="row position-relative">
 
           <div class="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200"><img src="{{ asset('asset/img/for.gif') }}"></div>
 

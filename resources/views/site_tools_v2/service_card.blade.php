@@ -8,7 +8,7 @@
 
 @forelse ($query as $val)
     @forelse ($val->child as $item)
-    <div class="col-lg-3 col-md-6 element-item grid-item {{ $val->id }}" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-lg-3 col-md-6 element-item grid-item {{ $val->id }}" data-aos="fade-up" data-aos-delay="100" >
         <div class="service-item  position-relative">
             <p>{{ $val->name }}</p>
         <div class="icon" >

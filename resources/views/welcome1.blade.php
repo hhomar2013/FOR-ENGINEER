@@ -73,10 +73,10 @@
 
     </div><!-- End Section Title -->
 
-    <div class="container">
+    <div class="container" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 
 
-        <div class="row gy-4 grid">
+        <div class="row gy-4 grid" >
             @include('site_tools_v2.service_card',['query'=>$categories])
         </div>
 
