@@ -2884,3 +2884,8 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+.userDashboard{
+    height: 100vh;
+    background-color: #1E201E;
+}

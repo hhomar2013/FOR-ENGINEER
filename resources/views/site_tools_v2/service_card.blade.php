@@ -7,14 +7,15 @@
 @endsection
 
 @forelse ($query as $val)
-    @forelse ($val->child as $item)
+    @forelse ($val->child->where('status','=',1) as $item)
     <div class="col-lg-3 col-md-6 element-item grid-item {{ $val->id }}" data-aos="fade-up" data-aos-delay="100" >
         <div class="service-item  position-relative">
             <p>{{ $val->name }}</p>
         <div class="icon" >
             <i class="material-icons">{{ $item->icone }}</i>
         </div>
-        <h3>{{ $item->name }}</h3>
+        <h5>{{ $item->name }}</h5>
+
         {{-- <p class="truncate-overflow">
             {!! $val->info !!}
         </p> --}}

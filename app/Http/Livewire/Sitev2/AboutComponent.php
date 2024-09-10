@@ -8,8 +8,6 @@ class AboutComponent extends Component
 {
     public function render()
     {
-        return view('livewire.sitev2.about-component')
-        ->extends('layouts.base')
-        ->section('content');
+        return view('livewire.sitev2.about-component');
     }
 }

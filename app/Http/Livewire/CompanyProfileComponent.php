@@ -38,8 +38,6 @@ class CompanyProfileComponent extends Component
         $this->about = null;
     }
 
-
-
     public function save_profile()
     {
 
@@ -89,16 +87,11 @@ class CompanyProfileComponent extends Component
         $this->validate([
             'photo' => 'image|max:2048', // 2MB Max
         ]);
-
         $this->fileName = $this->photo->store('CompanyPhotos','public');
-
-//        dd($this->fileName);
         $company = Company::find(auth()->id());
-
         $company->update([
             'logo'=> $this->fileName
         ]);
-
         $this->emit('refresh-company-sidebar');
         $this->emit('refresh-company-user');
         $this->emitSelf('$refresh');

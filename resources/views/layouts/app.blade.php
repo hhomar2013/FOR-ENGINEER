@@ -1,137 +1,100 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{{ __('For Engineers') }} | @yield('title') </title>
+  <meta content="{{ __('For Engineers') }}" name="keywords">
+  <meta content="{{ __('We specialize in providing professional services with an elite group of engineering offices and independent engineers accredited by the Saudi Engineering Authority') }}" name="description">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- Favicons -->
+  <link href="{{ asset('asset/img/for4.png') }}" rel="icon">
+  {{-- <link href="asset/img/apple-touch-icon.png" rel="apple-touch-icon"> --}}
 
-    <title>{{ __('For Engineers') }} | {{ $title }}</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-    {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+  <!-- Fonts -->
 
-{{--    <link rel="stylesheet" href="{{ asset('asset/site/app-6bbc4f6b.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('asset/site/app-29170f3c.css.css') }}">--}}
-   {{-- <link rel="stylesheet" href="{{ asset('asset/site/bootstrap.min.css') }}"> --}}
-    <!-- Scripts -->
-{{--     @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
-<link href="{{ asset('asset/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{asset('asset/site/bootstrap.min.css')}}"> --}}
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('asset/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('asset/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('asset/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('asset/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('asset/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('asset/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Main CSS File -->
+  {{-- <link href="{{ asset('asset/css/main.css') }}" rel="stylesheet"> --}}
+  @if(LaravelLocalization::getCurrentLocale() =='en')
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   <link href="{{ asset('asset/css/main.css') }}" rel="stylesheet">
+     @else
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+     <link href="{{ asset('asset/css/main_rtl.css') }}" rel="stylesheet"> @endif
+     <style>
+        .whats-app {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 15px;
+                background-color: #25d366;
+                color: #FFF;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index: 100;
+            }
 
+            .my-float {
+                margin-top: 16px;
+            }
+
+
+     </style>
+    @yield('css')
+    @livewireStyles
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600&display=swap');
-    body{
-        font-family: 'Cairo', sans-serif;
-        background-image: url({{ asset('asset/img/logo2.png') }});
-        background-repeat: no-repeat;
-        background-position-x: center;
-    }
+{{-- class="{{ $page_class }}" --}}
+<body>
+    @include('site_tools_v2.navbar')
 
-    .login-card{
-        margin-top:230px;padding: 30px;
+  <main class="main">
+    @yield('page_title')
+    {{-- @yield('content') --}}
+    {{ $slot }}
+  </main>
 
-    }
+  @include('site_tools_v2.footer')
 
+  <a  class="whats-app" href="https://wa.me/+966566626520" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+  </a>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Preloader -->
+  <div id="preloader"></div>
 
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('asset/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset('asset/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('asset/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('asset/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ asset('asset/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('asset/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('asset/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
-
-
-
-    @media (max-width: 767px) {
-    body{
-        background-image: url({{ asset('asset/img/logo2.png') }});
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-size: 200px 200px;
-    }
-
-    .login-card{
-        margin-top:100px;padding: 30px;
-    }
-
-
-
-}
-</style>
-<body class="bg-white text-dark">
-    <div id="app" >
-        <nav class="navbar navbar-expand-md">
-            <div class="container">
-{{--                <a class="navbar-brand" href="{{ url('/') }}">--}}
-{{--                    {{ config('app.name', 'Laravel') }}--}}
-{{--                </a>--}}
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        <li class="nav-item dropdown">
-
-{{--                            <div class="dropdown">--}}
-{{--                                @if (LaravelLocalization::getCurrentLocale() == 'ar')--}}
-{{--                                <a class="btn dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-language"></i> AR</a>--}}
-{{--                                @else--}}
-{{--                                <a class="btn dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-language"></i> EN</a>--}}
-{{--                                @endif--}}
-
-{{--                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">--}}
-{{--                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-{{--                                    @if ($localeCode == 'en')--}}
-{{--                                    <li>--}}
-{{--                                        <a class="dropdown-item " rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                                            <i class="fas fa-globe-americas"></i> {{ $properties['native'] }}--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    @else--}}
-{{--                                    <li>--}}
-{{--                                        <a class="dropdown-item " rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                                            <i class="fas fa-globe-africa"></i> {{ $properties['native'] }}--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    @endif--}}
-{{--                                    @endforeach--}}
-{{--                                </ul>--}}
-{{--                              </div>--}}
-                           {{-- </div> --}}
-
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-
-{{--    <script src="{{ asset('asset/site/app-6d844737.js') }}"></script>--}}
-{{--    <script src="{{asset('asset/site/bootstrap.bundle.min.js')}}"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>--}}
-
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>--}}
-
-    <script src="{{asset('asset/site/bootstrap.bundle.min.js')}}"></script>
-
+  <!-- Main JS File -->
+  <script src="{{ asset('asset/js/main1.js') }}"></script>
+    @yield('js')
+    @livewireScripts
 </body>
+
 </html>

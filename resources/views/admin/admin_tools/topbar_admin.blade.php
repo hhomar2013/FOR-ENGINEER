@@ -21,7 +21,7 @@
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
-
+        <li class="nav-item "><a class="nav-link" href="{{ route('site.index') }}">{{ __('Go Home') }}</a></li>
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
         <li class="nav-item dropdown no-arrow d-sm-none">
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -138,13 +138,13 @@
                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         @if ($localeCode == 'en')
                             <a class="dropdown-item {{LaravelLocalization::getCurrentLocale() == 'en' ? 'active' : ''}}" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-{{--                                <i class="fas fa-globe-americas"></i>--}}
+                    {{--                                <i class="fas fa-globe-americas"></i>--}}
                                 <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
                                 {{ $properties['native'] }}
                             </a>
                         @else
                             <a class="dropdown-item {{LaravelLocalization::getCurrentLocale() == 'ar' ? 'active' : ''}}" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-{{--                                <i class="fas fa-globe-africa"></i>--}}
+                {{--                                <i class="fas fa-globe-africa"></i>--}}
                                 <img src="{{asset('asset/img/flags/sa.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
                                 {{ $properties['native'] }}
                             </a>

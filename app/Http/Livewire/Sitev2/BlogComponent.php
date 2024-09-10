@@ -8,8 +8,6 @@ class BlogComponent extends Component
 {
     public function render()
     {
-        return view('livewire.sitev2.blog-component')
-        ->extends('layouts.base')
-        ->section('content');
+        return view('livewire.sitev2.blog-component');
     }
 }

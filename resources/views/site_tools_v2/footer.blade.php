@@ -3,7 +3,7 @@
 
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-6 col-md-6 footer-about">
+        <div class="col-lg-8 col-md-8 footer-about">
           <a href="/" class="logo d-flex align-items-center">
             <span class="sitename">{{ __('For Engineers') }}</span>
           </a>
@@ -42,17 +42,18 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>{{ __('Services') }}</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            @php
+            $categories = App\Models\categories::query()->where('status',1)->whereNotNull('parent_id')->get();
+            @endphp
+            @foreach ($categories as $cat_val)
+            <li><a href="{{ route('site.service.show',['id'=>$cat_val->id]) }}">{{  $cat_val->name }}</a></li>
+            @endforeach
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        {{-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Hic solutasetp</h4>
           <ul>
             <li><a href="#">Molestiae accusamus iure</a></li>
@@ -61,7 +62,7 @@
             <li><a href="#">Dilecta</a></li>
             <li><a href="#">Sit quas consectetur</a></li>
           </ul>
-        </div>
+        </div> --}}
 
 
 

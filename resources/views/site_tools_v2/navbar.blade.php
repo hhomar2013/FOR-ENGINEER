@@ -11,30 +11,37 @@
             {{-- @dd(app()->getLocale()); --}}
           <li><a href="/" class="{{ request()->is(app()->getLocale()) ? 'active' : '' }}">{{ __('t.home') }}</a></li>
           <li><a href="{{ route('site.about') }}" class="{{ request()->is(app()->getLocale().'/about') ? 'active' : '' }}">{{ __('About') }}</a></li>
-          <li><a href="">{{ __('Services') }}</a></li>
+          {{-- <li><a href="">{{ __('Services') }}</a></li> --}}
           <li><a href="projects.html">{{ __('Service Providers') }}</a></li>
           <li><a href="{{ route('site.blog') }}">{{ __('Blogs') }}</a></li>
           <li><a href="contact.html">{{ __('t.contact') }}</a></li>
+          @if (LaravelLocalization::getCurrentLocale() == 'ar')
+          <li><a class="" hreflang="{{ "en" }}" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
+            <img src="{{asset('asset/img/flags/sa.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
+            {{ "العربية" }}
+        </a></li>
+        @else
+        <li><a class="" hreflang="{{ "ar" }}" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
+            <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
+            {{ "English" }}
+        </a></li>
+        @endif
+          {{-- <li class="dropdown" >
 
-          <li class="dropdown">
-            {{-- <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> --}}
-            {{-- <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> --}}
             @if (LaravelLocalization::getCurrentLocale() == 'ar')
             <a>
-                {{-- <i class="bi bi-chevron-down toggle-dropdown"></i> العربية --}}
                 <img src="{{asset('asset/img/flags/sa.png')}}"  class="rounded-circle" style="width: 25px; height: 25px;" alt="">
             </a>
             @else
             <a >
-                {{-- <i class="bi bi-chevron-down toggle-dropdown"></i> EN --}}
                 <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 25px; height: 25px;" alt="">
             </a>
             @endif
             <ul>
               @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     @if ($localeCode == 'en')
-                    <li><a class="active" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
 
+                    <li><a class="active" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                         <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
                         {{ $properties['native'] }}
                     </a></li>
@@ -46,19 +53,18 @@
                     @endif
             @endforeach
             </ul>
-          </li>
+          </li> --}}
         @guest
         <li><a href="{{ route('login') }}" class="">{{ __('Log In') }}</a></li>
-        <li><a href="" class="">{{ __('Register') }}</a></li>
+        <li><a href="{{ route('register') }}" class="">{{ __('Register') }}</a></li>
         @else
         <li class="dropdown"><a href="#">
             <img src="{{ asset('asset/img/for4.png') }}" class="rounded-circle" style="width: 25px; height: 25px;" alt=""> &nbsp;
             <span>{{ Auth::user()->name }}</span>
              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">{{ __('Profile') }}</a></li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a></li>
+              <li><a href="{{ route('user.profile') }}">{{ __('Profile') }}</a></li>
               <li>
                 <a href="{{ route('logout') }}"
                  onclick="event.preventDefault();
@@ -73,9 +79,6 @@
             </ul>
           </li>
         @endguest
-
-
-
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-view-list"></i>
       </nav>

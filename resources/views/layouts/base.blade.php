@@ -57,6 +57,7 @@
 
      </style>
     @yield('css')
+    @livewireStyles
 </head>
 {{-- class="{{ $page_class }}" --}}
 <body>
@@ -64,8 +65,8 @@
 
   <main class="main">
     @yield('page_title')
-    @yield('content')
-    {{-- {{ $slot }} --}}
+    {{-- @yield('content') --}}
+    {{ $slot }}
   </main>
 
   @include('site_tools_v2.footer')
@@ -93,6 +94,7 @@
   <!-- Main JS File -->
   <script src="{{ asset('asset/js/main1.js') }}"></script>
     @yield('js')
+    @livewireScripts
 </body>
 
 </html>

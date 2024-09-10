@@ -20,6 +20,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Livewire\Sitev2\AboutComponent;
 use App\Http\Livewire\Sitev2\BlogComponent;
 use App\Http\Livewire\Sitev2\LandingPage;
+use App\Http\Livewire\Sitev2\ServiceComponent;
+use App\Http\Livewire\Sitev2\User\NewRequestComponent;
+use App\Http\Livewire\Sitev2\User\UserDashboardComponent;
+use App\Http\Livewire\Sitev2\UserProfileComponent;
 use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -49,7 +53,8 @@ Route::group(
         Route::get('/blog', BlogComponent::class)->name('site.blog');
         Route::get('/about',AboutComponent::class)->name('site.about');
         Route::get('/contact',[HomeController::class,'contact'])->name('site.contact');
-        Route::get('/service/show/{id}',[HomeController::class,'SeriveShow'])->name('site.service.show');
+        // Route::get('/service/show/{id}',[HomeController::class,'SeriveShow'])->name('site.service.show');
+        Route::get('/service/show/{id}', ServiceComponent::class)->name('site.service.show');
 //        Auth::routes(['verify'=>true]);
         Auth::routes();
         Route::get('/cp',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
@@ -117,7 +122,13 @@ Route::group(
 
 
             Route::get('/user/profile',[HomeController::class,'users_profile'])->name('clint.profile');
+            Route::get('/user/profile',UserProfileComponent::class)->name('user.profile');
+
             Route::post('/user/logout',[LoginController::class,'logout_user'])->name('user.logout');
+
+            /*-----------------------------------------------------------------------------------*/
+            Route::get('/Dashboard',UserDashboardComponent::class)->name('user.dashboard');
+            Route::get('/request/{id}',NewRequestComponent::class)->name('user.request');
         });
         /*End Clint Routes*/
 
