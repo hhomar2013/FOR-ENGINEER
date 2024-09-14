@@ -65,8 +65,8 @@
 
   <main class="main">
     @yield('page_title')
-    {{-- @yield('content') --}}
-    {{ $slot }}
+    @yield('content')
+    {{-- {{ $slot }} --}}
   </main>
 
   @include('site_tools_v2.footer')

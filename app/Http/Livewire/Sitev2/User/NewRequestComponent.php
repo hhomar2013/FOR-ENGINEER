@@ -35,7 +35,7 @@ class NewRequestComponent extends Component
     public function render()
     {
 
-        $companies = Company::query()->where('ct_id','=',$this->companySelected)->paginate(8);
+        $companies = Company::query()->where('ct_id','=',$this->companySelected)->paginate(12);
         return view('livewire.sitev2.user.new-request-component',['companies'=>$companies]);
     }
 }

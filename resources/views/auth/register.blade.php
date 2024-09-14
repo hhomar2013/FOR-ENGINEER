@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>__('t.register')])
+@extends('layouts.auth',['title'=>__('t.register')])
 
 @section('content')
 <div class="container">
