@@ -36,8 +36,9 @@
             <li><a href="/">{{ __('t.home') }}</a></li>
             <li><a href="{{ route('site.about') }}">{{ __('About') }}</a></a></li>
             <li><a href="#">{{ __('Services') }}</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="{{ route('service_provider') }}">{{ __('t.service_provider') }}</a></a></li>
+            <li><a href="{{ route('company.login') }}">{{ __('t.companies') }}</a></li>
+
           </ul>
         </div>
 
@@ -45,7 +46,7 @@
           <h4>{{ __('Services') }}</h4>
           <ul>
             @php
-            $categories = App\Models\categories::query()->where('status',1)->whereNotNull('parent_id')->get();
+            $categories = App\Models\categories::query()->where('status',1)->whereNotNull('parent_id')->limit(6)->get();
             @endphp
             @foreach ($categories as $cat_val)
             <li><a href="{{ route('site.service.show',['id'=>$cat_val->id]) }}">{{  $cat_val->name }}</a></li>

@@ -1,3 +1,11 @@
+
+
+
+  @isset($no)
+  <div class="page-title" style="background-image: url({{ asset('asset/img/page-title-bg.jpg') }})">
+</div>
+
+@else
 <!-- Page Title -->
 <div class="page-title" style="background-image: url({{ asset('asset/img/page-title-bg.jpg') }});">
     <div class="container position-relative">
@@ -9,4 +17,6 @@
         </ol>
       </nav>
     </div>
-  </div><!-- End Page Title -->
+  </div>
+  <!-- End Page Title -->
+  @endisset

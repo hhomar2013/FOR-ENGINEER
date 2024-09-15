@@ -16,7 +16,7 @@
                         {{-- <div class="row px-2 "> --}}
                         @foreach ($companiesType as $type )
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input class="btn-check" wire:model="companySelected" value="{{ $type->id }}" autocomplete="off"  type="radio" name="company" id="career-{{ $type->id }}">
+                                <input class="btn-check" wire:model="companySelected" wire:click="$set('show', 'true')" value="{{ $type->id }}" autocomplete="off"  type="radio" name="company" id="career-{{ $type->id }}">
                                 <label class="btn btn-outline-dark" for="career-{{ $type->id }}">
                                 {{ $type->name }}
                                 </label>
@@ -26,6 +26,23 @@
                     </div>
                 </div>
                 {{--End Card Career type --}}
+            </div>
+            <div class="col-lg-9">
+
+                @if($show)
+                    <div class="card">
+                        <div class="card-header text-bg-info">
+                            {{ __('Details') }}
+                        </div>
+                        <div class="card-body">
+                            <label for="" class="text-start">{{ __('Details') }}</label>
+                            <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="{{ __('Request details') }}"></textarea>
+                        </div>
+
+                    </div>
+                @endif
+
+
             </div>
             {{-- <div class="col-lg-9">
                 <div class="card " >

@@ -18,6 +18,7 @@ class NewRequestComponent extends Component
     public $companiesType;
     public $companySelected;
     public $getCompany;
+    public $show = false;
     // public $companies = '';
     public function mount($id)
     {
@@ -28,6 +29,11 @@ class NewRequestComponent extends Component
 
     public function updatedSelectedOption($value){
         $this->companySelected = $value;
+
+    }
+
+    public function show(){
+        $this->show = true;
     }
 
 
