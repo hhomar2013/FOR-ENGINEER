@@ -44,10 +44,19 @@ Route::group(
             // return what you want
         });
 
-        Route::get('/storage-link',function ()
-        {$targetFolder = storage_path('app/public');$linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';symlink($targetFolder,$linkFolder);});
+        Route::get('/storage-link', function () {
+            $exitCode = Artisan::call('storage:link', [] );
+            echo $exitCode;
+        });
 
-//        Route::get('/', function () {return view('welcome');});
+        Route::get('/storage-unlink', function () {
+            Artisan::call('storage:unlink');
+        });
+        // Route::get('/storage-link',function ()
+        // {$targetFolder = storage_path('app/public');$linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';symlink($targetFolder,$linkFolder);});
+
+
+        //        Route::get('/', function () {return view('welcome');});
         // Route::get('/',[HomeController::class,'index_customer'])->name('site.index');
         Route::get('/', LandingPage::class)->name('site.index');
         Route::get('/blog', BlogComponent::class)->name('site.blog');

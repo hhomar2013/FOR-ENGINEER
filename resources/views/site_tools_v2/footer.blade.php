@@ -12,7 +12,7 @@
           </p>
 
 
-          <div class="footer-contact pt-3" style="text-align: right">
+          <div class="footer-contact pt-3" style="">
             <p>{{ __('t.site.0') }}</p>
             {{-- <p>New York, NY 535022</p> --}}
             <p class="mt-3"><strong>{{ __('t.phone') }}:</strong> <a href="tel:{{ __('t.site.1') }}"><span>{{ __('t.site.1') }}</span></a></p>
@@ -37,7 +37,7 @@
             <li><a href="{{ route('site.about') }}">{{ __('About') }}</a></a></li>
             <li><a href="#">{{ __('Services') }}</a></li>
             <li><a href="{{ route('service_provider') }}">{{ __('t.service_provider') }}</a></a></li>
-            <li><a href="{{ route('company.login') }}">{{ __('t.companies') }}</a></li>
+            <li><a href="{{ route('company.login-view') }}">{{ __('t.companies') }}</a></li>
 
           </ul>
         </div>
