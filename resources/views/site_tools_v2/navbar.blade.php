@@ -60,7 +60,7 @@
         @else
         <li class="dropdown"><a href="#">
             <img src="{{ asset('asset/img/for4.png') }}" class="rounded-circle" style="width: 25px; height: 25px;" alt=""> &nbsp;
-            <span>{{ Auth::user()->name }}</span>
+            <span class="text-capitalize">{{ Auth::user()->name }}</span>
              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a></li>

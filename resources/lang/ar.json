@@ -144,6 +144,7 @@
     "There are no notifications" : "ليس هناك أي إشعارات",
     "Show Comment" : "مشاهدة الرد",
     "pending" : "قيد الأنتظار",
+    "In progress":"قيد التنفيذ",
     "Done" : "تم أنجازه",
     "Done Replayed" : "تم الرد",
     "system users" : "مستخدمى النظام",
@@ -591,5 +592,10 @@
     "You're subscribed in for engineer new news" : "أنت الأن مشترك في خدمة النشرة الإخبارية ",
     "Icons":"أيقونات",
     "Under development" :"تحت التطوير",
-    "Please select":"برجاء الإختيار"
+    "Please select":"برجاء الإختيار",
+    "Requests in the bidding stage" : "طلبات في مرحلة أستقبال العروض",
+    "Orders delivered" :"طلبات تم تسليمها",
+    "Cancelled requests" :"طلبات ملغية",
+    "Cancelled":"ملغي",
+    "Completed" :"مكتمل"
 }
