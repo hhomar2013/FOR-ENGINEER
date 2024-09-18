@@ -1,12 +1,13 @@
-<x-mail::message>
-# {{__('Approved Successfully')}}
-{{--{{__('The System are Create your email & password automatically and you can change your password in your profile together , make success.')--}}
-{{--}}--}}
+<x-mail::message>{{__('Approved Successfully')}}
 
-   #{{__('t.email') .': ' . $spa->email}}
-   #{{__('t.password') .': '.$spa->password}}
+<x-mail::panel>
+    {{__('t.email') .' : ' . $spa->email}}
+</x-mail::panel>
 
-<x-mail::button :url="'https://for-engineer.net/ar/company'">
+<x-mail::panel>
+    {{__('t.password') .' :  '.$spa->password}}
+</x-mail::panel>
+<x-mail::button :url="$url">
     {{ __('t.companies') }}
 </x-mail::button>
 {{__('Thanks,')}}

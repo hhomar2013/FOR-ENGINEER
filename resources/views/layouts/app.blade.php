@@ -56,7 +56,7 @@
 
 
      </style>
-    @yield('css')
+    @stack('css')
     @livewireStyles
 </head>
 {{-- class="{{ $page_class }}" --}}
@@ -90,10 +90,11 @@
   <script src="{{ asset('asset/vendor/purecounter/purecounter_vanilla.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/classic/ckeditor.js"></script>
 
   <!-- Main JS File -->
   <script src="{{ asset('asset/js/main1.js') }}"></script>
-    @yield('js')
+    @stack('js')
     @livewireScripts
 </body>
 

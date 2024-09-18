@@ -19,11 +19,15 @@ class NewRequestComponent extends Component
     public $companySelected;
     public $getCompany;
     public $show = false;
+    public $description='';
+    public $order_title;
+    public $number_dayes;
     // public $companies = '';
     public function mount($id)
     {
         $this->categories = categories::query()->find($id);
         $this->companiesType = companies_type::query()->get();
+        $this->order_title = $this->categories->name;
 
     }
 
@@ -32,10 +36,20 @@ class NewRequestComponent extends Component
 
     }
 
+    protected $rules =[
+        'name'=>'required',
+        'phone'=>'required',
+        'type'=>'required',
+        'attach'=>'required',
+    ];
+
     public function show(){
         $this->show = true;
     }
 
+    public function sendRequest(){
+
+    }
 
 
     public function render()

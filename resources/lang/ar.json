@@ -597,5 +597,9 @@
     "Orders delivered" :"طلبات تم تسليمها",
     "Cancelled requests" :"طلبات ملغية",
     "Cancelled":"ملغي",
-    "Completed" :"مكتمل"
+    "Completed" :"مكتمل",
+    "Service Provider" :"مقدمين الخدمات",
+    "Mail to service providers" :"بريد الى مقدمين الخدمات",
+    "Order Title":"عنوان الطلب",
+    "Number of days":"عدد الأيام"
 }

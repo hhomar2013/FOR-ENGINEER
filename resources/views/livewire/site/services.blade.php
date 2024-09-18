@@ -1,32 +1,54 @@
+@section('title'){{ __('Service Provider') }}@endsection
+@section('page_title')@include('site_tools_v2.page_title',['main_title'=>__('Service Provider')])@endsection
+
 <div>
-    <div class="container-fluid form-service">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
+    <style>
+        label{
+            padding: 8px;
+        }
+    </style>
+<div class="container pt-3 pb-5">
+        {{-- Start Card --}}
+        <div class="card shadow">
+            <div class="card-header" style="background-color: var(--orange-color)">
+                <h5 class="card-title py-2 text-white">
+                    <i class="fa-solid fa-registered"></i>
 
-                    <div class="card-body">
+                    {{ trans('t.service_provider_title') }}</h5>
+            </div>
+            <div class="card-body">
 
-                        <div class="card-header">
-                            <h5 class="card-title">{{ trans('t.service_provider_title') }}</h5>
-                        </div>
+                <div class="row">
                         @if (session()->has('message'))
-                            <div class="alert alert-success alert-dismissible fade show {{ (LaravelLocalization::getCurrentLocale() == 'ar' ?'float-right' : '') }}" role="alert">
-                                <strong>{{ config('app.name') }}</strong> {{ session('message') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show {{ (LaravelLocalization::getCurrentLocale() == 'ar' ?'float-right' : '') }} col-12" role="alert">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <strong>{{ config('app.name') }}</strong> {{ session('message') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="/" class="btn btn-danger shadow shadow-lg text-white p-3 rounded-4">
+                                {{ __('Go Home') }}
+
+                                <i class="fas fa-chevron-{{ (LaravelLocalization::getCurrentLocale() == 'ar' ?'left' : 'right') }}"></i>
+                            </a>
+                        </div>
+
+
+
                         @else
+
+                        <div class="col-lg-6">
                             <form wire:submit.prevent="SendReservation" autocomplete="off" style="font-size: small">
                                 <div class="form-group">
 
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-12">
+                                        <div class="col-lg-6 col-md-12">
                                             <label>{{ trans('t.name') .' '. __('Or') .' '. __('Company Name')}}</label>
                                             <input type="text" class="form-control  @error('name') is-invalid @enderror" placeholder="{{ __('t.name') .' '. __('Or') .' '. __('Company Name') }}" wire:model.defer="name">
                                             @error('name') <span class="error text-danger ">{{ $message }}</span> @enderror
                                         </div>
-                                        <div class="col-lg-3 col-md-12">
+                                        <div class="col-lg-6 col-md-12">
                                             <label>{{ trans('t.email') }}</label>
                                             <input type="email" class="form-control   @error('email') is-invalid @enderror" placeholder="{{ trans('t.email') }}" wire:model.defer="email">
                                             @error('email') <span class="error text-danger">{{ $message }}</span> @enderror
@@ -35,13 +57,13 @@
 
                                     <!-- Start Row -->
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-12">
+                                        <div class="col-lg-6 col-md-12">
                                             <label>{{ trans('t.phone') }}</label>
                                             <input type="text" class="form-control  @error('phone') is-invalid @enderror" placeholder="{{ trans('t.phone') }}" wire:model.defer="phone">
                                             @error('phone') <span class="error text-danger">{{ $message }}</span> @enderror
                                         </div>
 
-                                        <div class="col-lg-3 col-md-12">
+                                        <div class="col-lg-6 col-md-12">
                                             <label>{{ trans('t.type_work') }}</label>
                                             <select class="form-control  @error('type_work') is-invalid @enderror" wire:model.defer="type_work">
                                                 {{-- <option value="">{{ trans('t.select') }}</option> --}}
@@ -59,7 +81,7 @@
 
                                     <!--Start Row -->
                                     <div class="row">
-                                        <div class="col-lg-6 col-md-12">
+                                        <div class=" col-md-12">
                                             <label>{{ trans('t.address') }}</label>
                                             <textarea type="text" class="form-control  @error('address') is-invalid @enderror" placeholder="{{ trans('t.address') }}" height="100px;" wire:model.defer="address"></textarea>
                                             @error('address') <span class="error text-danger">{{ $message }}</span> @enderror
@@ -69,7 +91,7 @@
 
                                     <!--Start Row -->
                                     <div class="row">
-                                        <div class="col-lg-6 col-md-12 ">
+                                        <div class="col-lg-12 col-md-12 ">
                                             <label>{{ trans('t.disc') }}</label>
                                             <textarea type="text" class="form-control  @error('disc') is-invalid @enderror" placeholder="{{ trans('t.disc') }}" height="100px;" wire:model="disc"></textarea>
                                             @error('disc') <span class="error  text-danger">{{ $message }}</span> @enderror
@@ -78,7 +100,7 @@
                                     <!--End Row -->
 
                                     <!--Start Row -->
-                                        <div class="row col-lg-6 col-md-12">
+                                        <div class="row col-lg-12 col-md-12">
                                             <br>
 
                                             <label for="formFileSm" class="form-label">{{ trans('t.attachment') }}</label>
@@ -91,18 +113,27 @@
                                 </div><!--End Form Group -->
 
 
-
-                                <button type="submit" class="btn btn-primary  {{ (LaravelLocalization::getCurrentLocale() == 'ar' ?'float-right' : '') }}" >
+                                <br>
+                                <button type="submit" class="btn btn-primary py-2 px-5  rounded-4 {{ (LaravelLocalization::getCurrentLocale() == 'ar' ?'float-right' : '') }}" >
                                     {{ trans('t.Submit') }} <i class="far fa-paper-plane"></i>
                                 </button>
 
                             </form>
+                        </div>
+                        <div class="col-lg-6 position-relative">
+                            <img src="{{ asset('asset/img/for.gif') }}" alt="" class="rounded-5 w-50   d-none d-sm-block position-absolute top-50 start-50 translate-middle">
+                        </div>
                         @endif
 
-                    </div>
-                </div>
+
+
+                </div> {{-- End Row --}}
+
+
+
+
 
             </div>
-        </div>
+        </div>{{-- End Card --}}
     </div>
 </div>

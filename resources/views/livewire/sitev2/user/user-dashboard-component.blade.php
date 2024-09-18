@@ -22,7 +22,7 @@
                 <div class="row">
                     {{-- Start --}}
                     <div class="col-lg-3 col-sm-12 pb-2">
-                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:#f3ae46;">
+                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:var(--orange-color)">
                             <div class="card-body ">
                                 <div class="row">
                                     <h3 class="card-title">
@@ -46,7 +46,7 @@
 
                     {{-- Start --}}
                     <div class="col-lg-3 col-sm-12 pb-2">
-                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:#074173">
+                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:var(--blue-color)">
                             <div class="card-body">
                                 <div class="row">
                                     <h3 class="card-title">
@@ -70,7 +70,7 @@
 
                     {{-- Start --}}
                     <div class="col-lg-3 col-sm-12 pb-2">
-                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:#77cc58">
+                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:var(--green-color)">
                             <div class="card-body">
                                 <div class="row">
                                     <h3 class="card-title">
@@ -94,7 +94,7 @@
 
                     {{-- Start --}}
                     <div class="col-lg-3 col-sm-12 pb-2">
-                        <div class="card border border-0 shadow text-light rounded-4" style="background-color:#E16262">
+                        <div class="card border border-0 shadow text-light rounded-4" style="background-color: var(--red-color)">
                             <div class="card-body">
                                 <div class="row">
                                     <h3 class="card-title">
@@ -119,7 +119,7 @@
                 <br/>
                 <div class="col-12">
                     <div class="card border border-0 ">
-                        <div class="card-header" style="background-color:#074173">
+                        <div class="card-header" style="background-color:var(--blue-color)">
                             <h5 class="p-2 text-light">{{ __('Your Orders') }}</h5>
                         </div>
                         <div class="card-body">

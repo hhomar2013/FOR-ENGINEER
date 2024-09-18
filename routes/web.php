@@ -3,7 +3,7 @@
 use App\Mail\CompanyMail;
 use App\Http\Livewire\Spa;
 use App\Http\Controllers\Paytab;
-use App\Http\Livewire\Site\Services;
+use App\Http\Livewire\Services;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -77,7 +77,8 @@ Route::group(
 
     /*When Clint Login*/
 
-        Route::get('/serviceProvider',[siteController::class,'service_provider'])->name('service_provider');
+        // Route::get('/serviceProvider',[siteController::class,'service_provider'])->name('service_provider');
+        Route::get('/serviceProvider',Services::class)->name('service_provider');
 
         /*Super Admin Routs*/
     Route::group(['middleware' => ['auth:admin']], function() {
@@ -117,7 +118,7 @@ Route::group(
 
         /*Clint Routes*/
         Route::group(['middleware' => ['auth:web']],function (){
-            Route::get('/site',[HomeController::class,'index'])->name('site.home');
+            // Route::get('/site',[HomeController::class,'index'])->name('site.home');
             Route::get('/orders/{id}',[HomeController::class,'orders'])->name('site.orders');
             Route::get('/YourOrders',[HomeController::class,'UserOrders'])->name('site.user_orders');
             Route::get('/careers',[HomeController::class,'careers'])->name('site.careers');

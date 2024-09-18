@@ -85,6 +85,7 @@ class Services extends Component
     public function render()
     {
         $ct = companies_type::where('status','1')->get();
-        return view('livewire.site.services',['companiesType'=>$ct])->layout('layouts.site',['title'=>'Sevice Provider']);
+        return view('livewire.site.services',['companiesType'=>$ct]);
+        // ->layout('layouts.site',['title'=>'Sevice Provider']);
     }
 }

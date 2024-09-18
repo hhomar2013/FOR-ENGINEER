@@ -18,12 +18,12 @@
           @if (LaravelLocalization::getCurrentLocale() == 'ar')
           <li><a class="" hreflang="{{ "en" }}" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
             <img src="{{asset('asset/img/flags/sa.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
-            {{ "العربية" }}
+            {{ "العربية " }}
         </a></li>
         @else
         <li><a class="" hreflang="{{ "ar" }}" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
             <img src="{{asset('asset/img/flags/gb.png')}}"  class="rounded-circle" style="width: 30px; height: 30px;" alt="">
-            {{ "English" }}
+            {{ "English " }}
         </a></li>
         @endif
           {{-- <li class="dropdown" >

@@ -28,7 +28,7 @@ class CompanyMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Company Mail',
+            subject: __('Mail to service providers'),
         );
     }
 
@@ -37,8 +37,12 @@ class CompanyMail extends Mailable
      */
     public function content(): Content
     {
+        $url = "https://for-engineer.com/ar/company";
         return new Content(
             markdown: 'emails.companies',
+            with:[
+                'url' =>$url,
+            ]
 
         );
     }
