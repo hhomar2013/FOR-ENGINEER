@@ -1,7 +1,7 @@
 
-<footer id="footer" class="footer">
+<footer id="footer" class="footer fixed-top">
 
-    <div class="container footer-top">
+    <div class="container footer-top ">
       <div class="row gy-4">
         <div class="col-lg-8 col-md-8 footer-about">
           <a href="/" class="logo d-flex align-items-center">

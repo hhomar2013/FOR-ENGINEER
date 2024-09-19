@@ -230,6 +230,7 @@
     "Delete File": "حذف الملف",
     "Edit": "تحرير",
     "Edit Attached": "تحرير المرفق",
+    "Attachments" :"مرفقات",
     "Go Home": "الذهاب إلى الصفحة الرئيسية",
     "Hold Up!": "!انتظر من فضلك",
     "Lens": "عدسة",
@@ -601,5 +602,6 @@
     "Service Provider" :"مقدمين الخدمات",
     "Mail to service providers" :"بريد الى مقدمين الخدمات",
     "Order Title":"عنوان الطلب",
-    "Number of days":"عدد الأيام"
+    "Number of days":"عدد الأيام",
+    "Last date for receiving offers" :"اخر ميعاد لأستلام العروض"
 }

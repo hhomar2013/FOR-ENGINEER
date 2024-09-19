@@ -174,5 +174,11 @@ return [
         'details'              =>  'الوصف',
         'subject'               => 'الموضوع',
         'message'               => 'الرسالة',
+        'order_title'           => 'عنوان الطلب',
+        'min_asked_price'           => 'أقل سعر',
+        'max_asked_price'           => 'أعلى سعر',
+        'number_dayes'           => 'الأيام',
+        'end_date'           => 'الميعاد',
+        'attachment'       =>'المرفقات'
     ],
 ];

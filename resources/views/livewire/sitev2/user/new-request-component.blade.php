@@ -1,15 +1,15 @@
 @section('title') {{ $categories->name }}@endsection
 @section('page_title')@include('site_tools_v2.page_title',['main_title'=> $categories->name])@endsection
 
-<div >
+<div>
 
     <div class="container-fluid">
         <br>
         <div class="row">
             <div class="col-lg-3">
                 {{-- Card Career type --}}
-                <div class="card ">
-                    <div class="card-header bg-primary text-light p-3 text-center">
+                <div class="card rounded-top-4">
+                    <div class="card-header rounded-top-4  text-light p-3 text-center" style="background-color: var(--blue-color)">
                         <i class="fa-solid fa-check"></i> {{ __('Please select') }}
                     </div>
                     <div class="card-body">
@@ -18,82 +18,107 @@
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                 <input class="btn-check" wire:model="companySelected" wire:click="$set('show', 'true')" value="{{ $type->id }}" autocomplete="off"  type="radio" name="company" id="career-{{ $type->id }}">
                                 <label class="btn btn-outline-dark" for="career-{{ $type->id }}">
-                                {{ $type->name }}
+                                    <i class="fa-solid fa-toolbox"></i>  {{ $type->name }}
                                 </label>
                           </div>
                         @endforeach
                         {{-- </div> --}}
+                        @error('companySelected')
+                        <span class="text-danger">{{ __('t.select')}}</span>
+                        @enderror
                     </div>
                 </div>
                 {{--End Card Career type --}}
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 pb-5">
+                {{-- <div id="description"></div> --}}
+                {{-- @if($show) @endif --}}
+                <div class="card shadow-lg rounded-4" style="background-color: var(--default1-color)">
+                    <div class="card-body">
+                        <form class="row g-3 p-2" autocomplete="off">
+                            <div class="col-md-6">
+                              <label for="" class="form-label">{{ __('Order Title') }}</label>
+                              <input type="text" wire:model.defer="order_title" value="{{ $categories->name }}"
+                               class="form-control rounded-4 @error('order_title') is-invalid @enderror" autocomplete="false">
+                                @error('order_title')
+                                   <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-7">
+                                <label for="">{{ __('price') }}</label>
+                                <div class="input-group pt-2">
+                                    <div class="col">
+                                        <div class="col-12">
+                                            <input type="text" wire:model.defer="min_asked_price"
+                                            class="form-control rounded-4 @error('min_asked_price') is-invalid @enderror" placeholder="{{ __('From') }}" aria-label="Username">
+                                            @error('min_asked_price')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
 
-                @if($show)
-                    <div class="card">
-                        <div class="card-body">
-                            <form class="row g-3 p-2" autocomplete="off">
-                                <div class="col-md-6">
-                                  <label for="inputEmail4" class="form-label">{{ __('Order Title') }}</label>
-                                  <input type="text" wire:model.defer="order_title" value="{{ $categories->name }}" class="form-control rounded-4" autocomplete="false">
-                                </div>
-                                <div class="col-md-7">
-                                    <label for="">{{ __('price') }}</label>
-                                    <div class="input-group pt-2">
-                                        <input type="text" wire:model.defer="min_asked_price" class="form-control rounded-4" placeholder="{{ __('From') }}" aria-label="Username">
-                                        {{-- <span class="input-group-text"></span> --}}
-                                        <input type="text" wire:model.defer="max_asked_price" class="form-control  rounded-4" placeholder="{{ __('To') }}" aria-label="Server">
+                                  </div>
+                                  {{-- <span class="input-group-text"></span> --}}&nbsp;
+                                      <div class="col">
+                                        <div class="col-12">
+                                            <input type="text" wire:model.defer="max_asked_price"
+                                            class="form-control  rounded-4 @error('max_asked_price') is-invalid @enderror" placeholder="{{ __('To') }}" aria-label="Server">
+                                        </div>
+                                        @error('max_asked_price')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                       </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="inputEmail4" class="form-label">{{ __('Number of days') }}</label>
-                                    <input type="number" min="1"   wire:model.defer="number_dayes" value="{{ $categories->name }}" class="form-control rounded-4" autocomplete="false">
-                                  </div>
-
-                                <div class="col-12">
-                                  <label for="inputAddress" class="form-label">{{ __('Description') }}</label>
-                                    <textarea name="" id="editor" wire:model.defer="description" cols="30" rows="5" class="form-control rounded-4"></textarea>
-                                </div>
-                                <div class="col-12"  wire:ignore.self>
-                                    <label for="formFileSm" class="form-label">{{ __('t.attachment') }}</label>
-                                    <input class="form-control form-control-file  @error('') is-invalid @enderror" id="formFileSm" type="file" accept="application/pdf"  wire:model=""/>
-                                    <span class="error text-secondary">{{ __('t.file_size') }}</span>
-                                    @error('attach') <span class="error text-danger">{{ $message }}</span> @enderror
 
                                 </div>
-                                <div class="col-md-6">
-                                  <label for="inputCity" class="form-label">City</label>
-                                  <input type="text" class="form-control" id="inputCity">
-                                </div>
-                                <div class="col-md-4">
-                                  <label for="inputState" class="form-label">State</label>
-                                  <select id="inputState" class="form-select">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
-                                  </select>
-                                </div>
-                                <div class="col-md-2">
-                                  <label for="inputZip" class="form-label">Zip</label>
-                                  <input type="text" class="form-control" id="inputZip">
-                                </div>
-                                <div class="col-12">
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                      Check me out
-                                    </label>
-                                  </div>
-                                </div>
-                                <div class="col-12">
-                                  <button type="submit" class="btn btn-primary">Sign in</button>
-                                </div>
-                              </form>
-                        </div>
 
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="inputEmail4" class="form-label">{{ __('Number of days') }}</label>
+                                        <input type="number" min="1"   wire:model.defer="number_dayes" value="{{ $categories->name }}"
+                                         class="form-control rounded-4 @error('number_dayes') is-invalid @enderror" autocomplete="false">
+                                         @error('number_dayes') <span class="error text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputEmail4" class="form-label">{{ __('Last date for receiving offers') }}</label>
+                                        <input type="date" min="1"   wire:model.defer="end_date" value="{{ $categories->name }}"
+                                         class="form-control rounded-4  @error('end_date') is-invalid @enderror" autocomplete="false">
+                                         @error('end_date') <span class="error text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" wire:ignore>
+
+                              <label for="inputAddress" class="form-label">{{ __('Description') }}</label>
+                              <textarea  wire:model.defer="description"  rows="5" id="description"></textarea>
+                               @error('description') <span class="error text-danger">{{ $message }}</span> @enderror
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <label for="" class="form-label">{{ __('Attachments') }}</label>
+                                <input class="form-control form-control-file  @error('attachment') is-invalid @enderror"
+                                 type="file" accept="application/pdf" wire:model="attachment"/>
+                                <span class="error text-secondary">{{ __('t.file_size') }}</span><br>
+                                @error('attachment') <span class="error text-danger">{{ $message }}</span> @enderror
+
+                            </div>
+
+                            <div class="col-12">
+                              <button type="submit" wire:click.prevent="sendRequest" class="btn btn-primary rounded-4"> <i class="fa-regular fa-paper-plane"></i>  {{ __('t.Submit') }}</button>
+                            </div>
+
+                            <div wire:loading wire:target="sendRequest" class="spinner-border text-warning" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+
+
+                          </form>
                     </div>
-                @endif
 
+                </div>
 
             </div>
             {{-- <div class="col-lg-9">
@@ -139,34 +164,47 @@
                 </div>
             </div> --}}
         </div>
+
+
+        <div class="col p-3">
+            {!! $description !!}
+        </div>
     </div>
+
+
 
 
 </div>
 
+@push('css')
+{{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+@endpush
+
+
 @push('js')
-{{-- <script src="{{ asset('asset/js/ckeditor.js') }}"></script> --}}
-{{-- <script>
-    document.addEventListener('livewire:load', function () {
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                editor.model.document.on('change:data', () => {
-                    @this.set('description', editor.getData());
-                });
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }); --}}
+{{-- <script src="{{ asset('asset/js/summernote.min.js') }}"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+
 <script>
-    ClassicEditor
-        .create( document.querySelector( '.editor' ))
-        .then(editor => {
-            editor.model.document.on('change:data', () => {
-                let details = $('.editor').data('commenttext');
-                eval(details).set('commenttext', editor.getData())
-            })
+    $(document).ready(function() {
+        $('#description').summernote(
+        {
+            fontNames: ['Arial','Cairo'],
+            placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 200,
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    @this.set('description',contents);
+                }
+            }
+            });
     });
 </script>
 @endpush

@@ -20,14 +20,16 @@ return new class extends Migration
             $table->string('asked_dayes')->default(1);
             $table->text('description');
             $table->text('attachment')->null();
-            $table->string('offers_numbers');
-            $table->string('offer_id');
+            $table->string('offers_numbers')->default(0);
+            $table->string('offer_id')->nullable();
+            $table->string('offer_end_date');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('companies_type_id');
             $table->foreign('companies_type_id')->references('id')->on('companies_types')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('status')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
