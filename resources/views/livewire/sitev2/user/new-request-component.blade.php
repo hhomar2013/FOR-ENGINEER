@@ -1,12 +1,22 @@
 @section('title') {{ $categories->name }}@endsection
-@section('page_title')@include('site_tools_v2.page_title',['main_title'=> $categories->name])@endsection
-
+@section('page_title')@include('site_tools_v2.page_title', $show == true ? ['no'=>true] : ['main_title'=> $categories->name ])@endsection
 <div>
-
+    @if ($show)
+    <div class="container-fluid" style="height: 100vh">
+        <div class="col text-center py-5">
+            <div class="col-12">
+                <img src="{{ asset('asset/img/success-message.png') }}" alt="" class="w-25 h-50">
+            </div>
+            <div class="col-12">
+                <h5>{{ __('Your Request has been sent Kindly wait offers') }}</h5>
+            </div>
+        </div>
+    </div>
+    @else
     <div class="container-fluid">
         <br>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 py-2">
                 {{-- Card Career type --}}
                 <div class="card rounded-top-4">
                     <div class="card-header rounded-top-4  text-light p-3 text-center" style="background-color: var(--blue-color)">
@@ -15,8 +25,8 @@
                     <div class="card-body">
                         {{-- <div class="row px-2 "> --}}
                         @foreach ($companiesType as $type )
-                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input class="btn-check" wire:model="companySelected" wire:click="$set('show', 'true')" value="{{ $type->id }}" autocomplete="off"  type="radio" name="company" id="career-{{ $type->id }}">
+                            <div class="btn-group d-grid gap-2 py-2 px-2" role="group" aria-label="Basic radio toggle button group">
+                                <input class="btn-check" wire:model="companySelected" value="{{ $type->id }}" autocomplete="off"  type="radio" name="company" id="career-{{ $type->id }}">
                                 <label class="btn btn-outline-dark" for="career-{{ $type->id }}">
                                     <i class="fa-solid fa-toolbox"></i>  {{ $type->name }}
                                 </label>
@@ -167,11 +177,24 @@
 
 
         <div class="col p-3">
-            {!! $description !!}
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                       {{ __('Show Order') }}
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        {!! $description !!}
+                    </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
-
+    @endif
 
 
 </div>
@@ -196,7 +219,6 @@
         $('#description').summernote(
         {
             fontNames: ['Arial','Cairo'],
-            placeholder: 'Hello Bootstrap 4',
         tabsize: 2,
         height: 200,
             callbacks: {

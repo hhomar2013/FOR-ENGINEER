@@ -14,10 +14,10 @@ use Livewire\WithPagination;
 
 class NewRequestComponent extends Component
 {
-
     use WithPagination;
     use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['refresh'=>'$refresh'];
     public $categories;
     public $companiesType;
     public $companySelected;
@@ -70,6 +70,7 @@ class NewRequestComponent extends Component
 
     public function show(){
         $this->show = true;
+        $this->emit('refresh');
     }
 
     public function sendRequest(){
@@ -92,6 +93,11 @@ class NewRequestComponent extends Component
             'companies_type_id' =>$this->companySelected ,
             'user_id' => Auth::user()->id,
         ]);
+
+        if ($request) {
+            // session()->flash('message',__('Your Request has been sent Kindly wait offers'));
+            $this->show();
+        }
 
 
     }

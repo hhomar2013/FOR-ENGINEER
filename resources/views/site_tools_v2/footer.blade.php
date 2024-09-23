@@ -1,5 +1,5 @@
 
-<footer id="footer" class="footer fixed-top">
+<footer id="footer" class="footer">
 
     <div class="container footer-top ">
       <div class="row gy-4">
