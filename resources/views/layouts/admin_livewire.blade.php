@@ -57,8 +57,8 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid" >
-                @yield('content')
-
+                {{-- @yield('content') --}}
+                {{ $slot }}
             </div>
             <!-- /.container-fluid -->
 
@@ -157,7 +157,7 @@
 
 
 
-@yield('js')
+@stack('js')
 @livewireScripts
 </body>
 

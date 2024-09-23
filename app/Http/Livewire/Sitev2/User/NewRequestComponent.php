@@ -70,7 +70,8 @@ class NewRequestComponent extends Component
 
     public function show(){
         $this->show = true;
-        $this->emit('refresh');
+        $this->emitSelf('refresh');
+        $this->emitTo('dashboard','dashboardRefresh');
     }
 
     public function sendRequest(){
@@ -95,7 +96,6 @@ class NewRequestComponent extends Component
         ]);
 
         if ($request) {
-            // session()->flash('message',__('Your Request has been sent Kindly wait offers'));
             $this->show();
         }
 

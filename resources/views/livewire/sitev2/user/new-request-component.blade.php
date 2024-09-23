@@ -1,18 +1,24 @@
 @section('title') {{ $categories->name }}@endsection
-@section('page_title')@include('site_tools_v2.page_title', $show == true ? ['no'=>true] : ['main_title'=> $categories->name ])@endsection
 <div>
     @if ($show)
-    <div class="container-fluid" style="height: 100vh">
+    @section('page_title')@include('site_tools_v2.page_title',['no'=>true])@endsection
+    <div class="container-fluid" style="height: 50vh">
         <div class="col text-center py-5">
             <div class="col-12">
                 <img src="{{ asset('asset/img/success-message.png') }}" alt="" class="w-25 h-50">
             </div>
             <div class="col-12">
+
                 <h5>{{ __('Your Request has been sent Kindly wait offers') }}</h5>
+            </div>
+            <br>
+            <div class="col-12">
+                <a href="{{ route('site.index') }}" class="btn btn-primary rounded-4">{{ __('Go Home') }}</a>
             </div>
         </div>
     </div>
     @else
+    @section('page_title')@include('site_tools_v2.page_title',['main_title'=> $categories->name ])@endsection
     <div class="container-fluid">
         <br>
         <div class="row">
@@ -119,6 +125,10 @@
                             <div class="col-12">
                               <button type="submit" wire:click.prevent="sendRequest" class="btn btn-primary rounded-4"> <i class="fa-regular fa-paper-plane"></i>  {{ __('t.Submit') }}</button>
                             </div>
+
+                            <div class="col-12">
+                                <button type="submit" wire:click.prevent="$emitTo('admin-orders', 'get_data')" class="btn btn-danger rounded-4"> <i class="fa-regular fa-paper-plane"></i>  {{ __('t.Submit') }}</button>
+                              </div>
 
                             <div wire:loading wire:target="sendRequest" class="spinner-border text-warning" role="status">
                                 <span class="visually-hidden">Loading...</span>
@@ -229,4 +239,9 @@
             });
     });
 </script>
+
+
+
+
+
 @endpush

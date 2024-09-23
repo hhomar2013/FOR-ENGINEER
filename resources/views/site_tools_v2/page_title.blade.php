@@ -1,10 +1,7 @@
 
-
-
-  @isset($no)
+@isset($no)
   <div class="page-title" style="background-image: url({{ asset('asset/img/page-title-bg.jpg') }})">
-</div>
-
+    </div>
 @else
 <!-- Page Title -->
 <div class="page-title" style="background-image: url({{ asset('asset/img/page-title-bg.jpg') }});">
@@ -19,4 +16,4 @@
     </div>
   </div>
   <!-- End Page Title -->
-  @endisset
+@endisset

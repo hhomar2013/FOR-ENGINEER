@@ -17,6 +17,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MoyasarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Sitev2\AboutComponent;
 use App\Http\Livewire\Sitev2\BlogComponent;
 use App\Http\Livewire\Sitev2\LandingPage;
@@ -82,7 +83,9 @@ Route::group(
 
         /*Super Admin Routs*/
     Route::group(['middleware' => ['auth:admin']], function() {
-        Route::get('/admin/dashboard',[AdminController::class,'index'])->name('super.dashboard');
+
+        Route::get('/admin/dashboard',Dashboard::class)->name('super.dashboard');
+        // Route::get('/admin/dashboard',[AdminController::class,'index'])->name('super.dashboard');
         /*SPA*/
         Route::get('/admin/Orders',[AdminController::class,'Orders'])->name('admin.Orders');
         Route::get('/admin/spa',[AdminController::class,'spa'])->name('admin.spa');

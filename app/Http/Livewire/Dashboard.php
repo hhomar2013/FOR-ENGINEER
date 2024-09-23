@@ -18,7 +18,10 @@ class Dashboard extends Component
     use WithPagination;
     public $search='';
     public $orders;
-    public $listeners =['refreshDashboardAdmin' =>'refresh_page','send_order'=>'order'];
+    public $listeners =[
+    'refreshDashboardAdmin' =>'refresh_page',
+    'send_order'=>'order' ,
+    'dashboardRefresh'=>'$refresh'];
     protected $paginationTheme = 'bootstrap';
 
     public function order()
@@ -37,6 +40,7 @@ class Dashboard extends Component
 
     public function render()
     {
+
 //        $SPA = service_provider_reservation::where('name','like','%'.$this->search.'%');
         $spa = service_provider_reservation::where('status',0)
             ->where('created_at',Carbon::now()->format('Y-m-d'))
@@ -54,6 +58,6 @@ class Dashboard extends Component
             'companies_count'=>$companies,'annual'=>$Annual,'monthly'=>$monthly,
             'reservation'=>$reservation
             ])
-            ->extends('layout.admin');
+            ->layout('layouts.admin_livewire' , ['title'=> __('Dashboard')]);
     }
 }

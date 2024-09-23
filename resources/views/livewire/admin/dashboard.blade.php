@@ -92,7 +92,8 @@
             {{--        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}}
             {{--                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
         </div>
-        <div class="table-responsive-sm" wire:poll.5s="refresh_page">
+        {{-- wire:poll.5s="refresh_page" --}}
+        <div class="table-responsive-sm" >
             <table class="table table-bordered  table-hover table-sm text-center">
                 <thead>
                 <tr class="bg-dark text-white" >
@@ -169,9 +170,18 @@
 
 
 
-@section('js')
+@push('js')
     <!-- Page level plugins -->
 {{--    <script src="{{asset('asset/admin/vendor/chart.js/Chart.min.js')}}"></script>--}}
     <!-- Page level custom scripts -->
 
-@endsection
+
+    {{-- <script>
+        document.addEventListener('livewire:load', function () {
+           @this.on('$refresh' ,() =>{
+                alert('dashboard')
+           })
+        })
+    </script> --}}
+
+@endpush

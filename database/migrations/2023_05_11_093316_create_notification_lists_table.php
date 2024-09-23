@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('user')->nullable();
             $table->string('icon')->nullable();
             $table->string('status')->nullable()->default(0);
-            $table->string(0)->default(0);
+            $table->string('read')->default(0);
             $table->timestamps();
         });
     }
