@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <div class="small text-gray-500">{{\Carbon\Carbon::parse($notification_data->updated_at)->diffForHumans()}}</div>
-                            <span class="font-weight-bold">{{__('You Have New Order') . ': '. $notification_data['order_ref']}}</span>
+                            <span class="font-weight-bold">{{__('You Have New Order') . ': '. $notification_data['order_refrence']}}</span>
                         </div>
                     </a>
                 @empty

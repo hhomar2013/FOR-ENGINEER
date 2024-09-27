@@ -59,7 +59,6 @@
         <li><a href="{{ route('register') }}" class="">{{ __('Register') }}</a></li>
         @else
         <li class="dropdown text-secondary"><a href="#">
-            @livewire('admin-orders')
             <img src="{{ asset('asset/img/for4.png') }}" class="rounded-circle" style="width: 25px; height: 25px;" alt=""> &nbsp;
             <span class="text-capitalize">{{ Auth::user()->name }}</span>
              <i class="bi bi-chevron-down toggle-dropdown"></i></a>

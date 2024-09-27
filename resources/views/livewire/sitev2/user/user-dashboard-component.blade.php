@@ -5,17 +5,30 @@
         <div class="row mt-3 mb-5 mx-md-0">
             {{-- Start Right --}}
             <div class="col-lg-3  pb-2">
-                <div class="bg-white rounded-3 px-3 py-3 text-center">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <img src="{{ asset('asset/img/team/team-6.jpg') }}" alt="" class="rounded-pill w-50" >
-                        </div>
-                        <div class="col-lg-7">
-                            <p class="py-3 text-capitalize"><b>{{ Auth::user()->name }}</b></p>
+                {{-- Start Row --}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bg-white rounded-3 px-3 py-3 text-center">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <img src="{{ asset('asset/img/team/team-1.jpg') }}" alt="" class="rounded-pill w-50" >
+                                </div>
+                                <div class="col-lg-7">
+                                    <p class="py-3 text-capitalize"><b>{{ Auth::user()->name }}</b></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                    <div class="col-12 py-3">
+                        {{-- <ul class="list-group rounded-3 text-center">
+                            <li class="list-group-item active" aria-current="true">An active item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">A fourth item</li>
+                            <li class="list-group-item">And a fifth one</li>
+                          </ul> --}}
+                    </div>
+                </div>{{-- End Row --}}
             </div>{{-- End Right --}}
             {{-- Start Left --}}
             <div class="col-lg-9">
@@ -36,7 +49,7 @@
                                         </p>
                                     </div>
                                     <div class="col-6 text-center">
-                                        <h3 class="text-light"><b>100</b></h3>
+                                        <h3 class="text-light"><b>{{ $newRequest->where('status',0)->count() }}</b></h3>
                                         <p>{{ __('pending') }}</p>
                                     </div>
                                 </div>
@@ -60,7 +73,7 @@
                                         </p>
                                     </div>
                                     <div class="col-6 text-center">
-                                        <h3 class="text-light"><b>100</b></h3>
+                                        <h3 class="text-light"><b>{{ $newRequest->where('status',"In progress")->count() }}</b></h3>
                                         <p>{{ __('In progress') }}</p>
                                     </div>
                                 </div>
@@ -84,7 +97,7 @@
                                         </p>
                                     </div>
                                     <div class="col-6 text-center">
-                                        <h3 class="text-light"><b>100</b></h3>
+                                        <h3 class="text-light"><b>{{ $newRequest->where('status',"Completed")->count() }}</b></h3>
                                         <p>{{ __('Completed') }}</p>
                                     </div>
                                 </div>
@@ -108,7 +121,7 @@
                                         </p>
                                     </div>
                                     <div class="col-6 text-center">
-                                        <h3 class="text-light"><b>1</b></h3>
+                                        <h3 class="text-light"><b>{{ $newRequest->where('status',"Cancelled")->count() }}</b></h3>
                                         <p>{{ __('Cancelled') }}</p>
                                     </div>
                                 </div>
