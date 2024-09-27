@@ -12,7 +12,6 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -59,7 +58,6 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         array (
             'Symfony\\Polyfill\\Uuid\\' => 22,
             'Symfony\\Polyfill\\Php80\\' => 23,
-            'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
@@ -222,10 +220,6 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
-        'Symfony\\Polyfill\\Php72\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -635,6 +629,7 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Http\\Livewire\\ContactMassageListComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/ContactMassageListComponent.php',
         'App\\Http\\Livewire\\ContactsComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/ContactsComponent.php',
         'App\\Http\\Livewire\\Dashboard' => __DIR__ . '/../..' . '/app/Http/Livewire/Dashboard.php',
+        'App\\Http\\Livewire\\ModalComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/ModalComponent.php',
         'App\\Http\\Livewire\\NewNewsEmail' => __DIR__ . '/../..' . '/app/Http/Livewire/NewNewsEmail.php',
         'App\\Http\\Livewire\\NotificationList' => __DIR__ . '/../..' . '/app/Http/Livewire/NotificationList.php',
         'App\\Http\\Livewire\\OrderCart' => __DIR__ . '/../..' . '/app/Http/Livewire/OrderCart.php',
@@ -647,6 +642,13 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Http\\Livewire\\SiteService' => __DIR__ . '/../..' . '/app/Http/Livewire/SiteService.php',
         'App\\Http\\Livewire\\SiteServiceList' => __DIR__ . '/../..' . '/app/Http/Livewire/SiteServiceList.php',
         'App\\Http\\Livewire\\SiteServiceListChild' => __DIR__ . '/../..' . '/app/Http/Livewire/SiteServiceListChild.php',
+        'App\\Http\\Livewire\\Sitev2\\AboutComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/AboutComponent.php',
+        'App\\Http\\Livewire\\Sitev2\\BlogComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/BlogComponent.php',
+        'App\\Http\\Livewire\\Sitev2\\LandingPage' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/LandingPage.php',
+        'App\\Http\\Livewire\\Sitev2\\ServiceComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/ServiceComponent.php',
+        'App\\Http\\Livewire\\Sitev2\\UserProfileComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/UserProfileComponent.php',
+        'App\\Http\\Livewire\\Sitev2\\User\\NewRequestComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/User/NewRequestComponent.php',
+        'App\\Http\\Livewire\\Sitev2\\User\\UserDashboardComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/Sitev2/User/UserDashboardComponent.php',
         'App\\Http\\Livewire\\Spa' => __DIR__ . '/../..' . '/app/Http/Livewire/Spa.php',
         'App\\Http\\Livewire\\Switcher' => __DIR__ . '/../..' . '/app/Http/Livewire/Switcher.php',
         'App\\Http\\Livewire\\UserMenu' => __DIR__ . '/../..' . '/app/Http/Livewire/UserMenu.php',
@@ -679,6 +681,7 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Models\\Company' => __DIR__ . '/../..' . '/app/Models/Company.php',
         'App\\Models\\ContactMessage' => __DIR__ . '/../..' . '/app/Models/ContactMessage.php',
         'App\\Models\\NewNewsEmails' => __DIR__ . '/../..' . '/app/Models/NewNewsEmails.php',
+        'App\\Models\\NewRequest' => __DIR__ . '/../..' . '/app/Models/NewRequest.php',
         'App\\Models\\NotificationList' => __DIR__ . '/../..' . '/app/Models/NotificationList.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\OrderComments' => __DIR__ . '/../..' . '/app/Models/OrderComments.php',
@@ -691,6 +694,7 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'App\\Models\\logs' => __DIR__ . '/../..' . '/app/Models/logs.php',
         'App\\Models\\order_ask_price' => __DIR__ . '/../..' . '/app/Models/order_ask_price.php',
         'App\\Models\\order_invoice' => __DIR__ . '/../..' . '/app/Models/order_invoice.php',
+        'App\\Models\\requestOffers' => __DIR__ . '/../..' . '/app/Models/requestOffers.php',
         'App\\Models\\service_provider_reservation' => __DIR__ . '/../..' . '/app/Models/service_provider_reservation.php',
         'App\\Models\\service_site_price' => __DIR__ . '/../..' . '/app/Models/service_site_price.php',
         'App\\Models\\site_info' => __DIR__ . '/../..' . '/app/Models/site_info.php',
@@ -6667,7 +6671,6 @@ class ComposerStaticInitbe7915aab213c69991eacf162b2a9b7c
         'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\Regex' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Resources/unidata/Regex.php',
         'Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Normalizer.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
-        'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
         'Symfony\\Polyfill\\Uuid\\Uuid' => __DIR__ . '/..' . '/symfony/polyfill-uuid/Uuid.php',
