@@ -241,7 +241,11 @@
 </script>
 
 
-
+<script>
+    window.addEventListener('send_order', (event) => {
+        new Audio("{{url('storage/sound/notification.mp3')}}").play();
+    })
+</script>
 
 
 @endpush

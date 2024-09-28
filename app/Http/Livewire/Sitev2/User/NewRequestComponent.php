@@ -71,7 +71,8 @@ class NewRequestComponent extends Component
     public function show(){
         $this->show = true;
         $this->emitSelf('refresh');
-        $this->emitTo('dashboard','dashboardRefresh');
+        $this->emit('dashboardRefresh');
+        $this->dispatchBrowserEvent('send_order');
     }
 
     public function sendRequest(){

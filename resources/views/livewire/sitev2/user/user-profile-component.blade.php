@@ -3,7 +3,7 @@
 @section('page_title')@include('site_tools_v2.page_title',['main_title'=>__('Profile')])@endsection
     <!-- Starter Section Section -->
     <section id="starter-section" class="starter-section section">
-        <div class="container" data-aos="fade-up">
+        <div class="container" >
           <div class="row">
             <div class="col-lg-6">
                 <div class="card border border-0 shadow">
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-         <div class="col-lg-6 shadow p-3">
+                        <div class="col-lg-6 shadow p-3">
                             <form wire:submit.prevent="update_image">
                                 <div class="mb-3">
                                     <div class="row">

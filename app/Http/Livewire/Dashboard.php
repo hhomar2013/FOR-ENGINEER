@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\account_balance;
 use App\Models\Company;
+use App\Models\NewRequest;
 use App\Models\Order;
 use App\Models\service_provider_reservation;
 use App\Models\site_tresury;
@@ -18,6 +19,9 @@ class Dashboard extends Component
     use WithPagination;
     public $search='';
     public $orders;
+    public $newRequest;
+    public $oldRequestCount;
+    public $nowRequestCount;
     public $shouldPlayAudio;
     public $listeners =[
     'refreshDashboardAdmin' =>'refresh_page',
@@ -25,17 +29,24 @@ class Dashboard extends Component
     'dashboardRefresh'=>'$refresh'];
     protected $paginationTheme = 'bootstrap';
 
+
+
     public function order()
     {
-        $this->dispatchBrowserEvent('send_order');
+        $count = NewRequest::query()->count();
+        session()->flash('count',$count);
+        $this->emit('dashboardRefresh');
+
+        dd(session('count') .  $this->newRequest->count());
+        // $this->dispatchBrowserEvent('send_order');
         // $this->emit('send_order');
     }
 
-    public function update()
-{
-   // updates
-  $this->emit('send_order');
-}
+    // public function update()
+    //     {
+    //     // updates
+    //     $this->emit('send_order');
+    //     }
     public function refresh_page()
     {
         $this->orders = Order::query()->with(['users','companies_service'])
@@ -47,7 +58,7 @@ class Dashboard extends Component
 
     public function render()
     {
-
+            $this->newRequest = NewRequest::query()->get();
 //        $SPA = service_provider_reservation::where('name','like','%'.$this->search.'%');
         $spa = service_provider_reservation::where('status',0)
             ->where('created_at',Carbon::now()->format('Y-m-d'))
