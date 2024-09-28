@@ -8,20 +8,21 @@ use Livewire\Component;
 
 class AdminOrders extends Component
 {
-    public $order_count;
 
-    protected $listeners = ['AdminOrderRefresh'=>'$refresh' ,
-    'get_data'
-];
+    public $orderCount;
+    public $requestOldCount;
+    public $audio = false;
 
-    public function get_data(){
-        dd('ok');
+    protected $listeners = ['AdminOrderRefresh'=>'$refresh' ,'getData'];
+
+    public function getData(){
+        $this->dispatchBrowserEvent('getData');
     }
 
     public function render()
     {
         // $this->order_count = Order::query()->count();
-        $this->order_count = NewRequest::query()->count();
+        $this->orderCount = NewRequest::query()->count();
         return view('livewire.admin-orders');
     }
 }

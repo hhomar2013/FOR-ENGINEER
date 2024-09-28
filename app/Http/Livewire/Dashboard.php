@@ -18,6 +18,7 @@ class Dashboard extends Component
     use WithPagination;
     public $search='';
     public $orders;
+    public $shouldPlayAudio;
     public $listeners =[
     'refreshDashboardAdmin' =>'refresh_page',
     'send_order'=>'order' ,
@@ -26,9 +27,15 @@ class Dashboard extends Component
 
     public function order()
     {
-        dd('ok');
+        $this->dispatchBrowserEvent('send_order');
+        // $this->emit('send_order');
     }
 
+    public function update()
+{
+   // updates
+  $this->emit('send_order');
+}
     public function refresh_page()
     {
         $this->orders = Order::query()->with(['users','companies_service'])

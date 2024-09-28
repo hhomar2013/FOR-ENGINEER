@@ -1,4 +1,4 @@
-<div>
+<div wire:poll>
     {{--    Heding Page--}}
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{__('t.dashboard')}}</h1>
@@ -129,6 +129,8 @@
         </div>
     </div>
     <div class="row">
+        <button type="submit" wire:click="order" class="btn btn-primary">play</button>
+        <audio id="audioPlayer" src="{{ asset("asset/admin/sound/notification.mp3") }}"></audio>
 
         <!-- Area Chart -->
 {{--        <div class="col-xl-12 col-lg-12" >--}}
@@ -183,5 +185,12 @@
            })
         })
     </script> --}}
+
+
+    <script>
+        window.addEventListener('send_order', (event) => {
+            new Audio("{{url('storage/sound/notification.mp3')}}").play();
+        })
+    </script>
 
 @endpush
