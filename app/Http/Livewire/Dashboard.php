@@ -19,25 +19,43 @@ class Dashboard extends Component
     use WithPagination;
     public $search='';
     public $orders;
-    public $newRequest;
-    public $oldRequestCount;
-    public $nowRequestCount;
     public $shouldPlayAudio;
+    public $rows;
+    public $previousRowCount;
     public $listeners =[
     'refreshDashboardAdmin' =>'refresh_page',
     'send_order'=>'order' ,
-    'dashboardRefresh'=>'$refresh'];
+    'dashboardRefresh'=>'$refresh',
+    'Rows' => 'fetchRows'
+];
     protected $paginationTheme = 'bootstrap';
 
+    public function mount()
+    {
+        $this->fetchRows();
+        $this->previousRowCount = count($this->rows); // Set initial count
+    }
 
+    public function fetchRows()
+    {
+        $this->rows = NewRequest::latest()->get();
+
+        // Check if new row is added
+        if (count($this->rows) > $this->previousRowCount) {
+            // $this->emit('newRowAdded'); // Emit an event if a new row is added
+            $this->dispatchBrowserEvent('send_order');
+            $this->dispatchBrowserEvent('send_order_message');
+
+        }
+
+        // Update the previous row count
+        $this->previousRowCount = count($this->rows);
+    }
 
     public function order()
     {
-        $count = NewRequest::query()->count();
-        session()->flash('count',$count);
         $this->emit('dashboardRefresh');
-
-        dd(session('count') .  $this->newRequest->count());
+        $this->emit('Rows');
         // $this->dispatchBrowserEvent('send_order');
         // $this->emit('send_order');
     }
@@ -58,7 +76,6 @@ class Dashboard extends Component
 
     public function render()
     {
-            $this->newRequest = NewRequest::query()->get();
 //        $SPA = service_provider_reservation::where('name','like','%'.$this->search.'%');
         $spa = service_provider_reservation::where('status',0)
             ->where('created_at',Carbon::now()->format('Y-m-d'))

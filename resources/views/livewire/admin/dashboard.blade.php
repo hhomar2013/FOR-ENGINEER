@@ -1,4 +1,4 @@
-<div wire:poll>
+<div wire:poll="order">
     {{--    Heding Page--}}
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{__('t.dashboard')}}</h1>
@@ -193,4 +193,9 @@
         })
     </script>
 
+    <script>
+           window.addEventListener('send_order_message' , (event)=> {
+            Toast.fire({icon: 'success',title:'{{ __("You Have New Order") }}'});
+        })
+    </script>
 @endpush
