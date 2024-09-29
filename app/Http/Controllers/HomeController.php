@@ -87,4 +87,9 @@ class HomeController extends Controller
     }
     /*End Users Methods*/
 
+
+    public function emailshow(){
+        return view('emails.NewRequestEmail');
+    }
+
 }

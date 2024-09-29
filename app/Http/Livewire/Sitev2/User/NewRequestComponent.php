@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Sitev2\User;
 
+use App\Mail\NewRequest as MailNewRequest;
 use App\Models\CareersType;
 use App\Models\categories;
 use App\Models\companies_type;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Mail;
 
 class NewRequestComponent extends Component
 {
@@ -97,6 +99,7 @@ class NewRequestComponent extends Component
         ]);
 
         if ($request) {
+            Mail::to(Auth::user()->email)->locale('ar')->send(new MailNewRequest($request));
             $this->show();
         }
 

@@ -157,6 +157,9 @@ Route::group(
         Route::get('cancel-transaction',    [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 
 
+        Route::get('emailshow',[HomeController::class,'emailshow'])->name('emailshow');
+
+
     });//end of localization
 
 
