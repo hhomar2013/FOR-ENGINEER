@@ -136,33 +136,26 @@
                             <h5 class="p-2 text-light">{{ __('Your Orders') }}</h5>
                         </div>
                         <div class="card-body">
-                            <table class="table">
+                            <table class="table table-hover table-striped table-bordered  table-responsive-sm">
                                 <thead>
                                   <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">{{ __('reference number') }}</th>
+                                    <th scope="col">{{ __('Description') }}</th>
+                                    <th scope="col"><i class="fa fa-cogs"></i></th>
                                   </tr>
                                 </thead>
                                 <tbody class="table-group-divider">
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <?php $i=1 ?>
+                                 @foreach ($newRequest as $value )
+                                 <tr>
+                                    <th scope="row">{{ $i++ }}</th>
+                                    <td>{{ $value->order_refrence }}</td>
+                                    <td>{{ $value->order_title }}</td>
+                                    <td><a href="{{  route('user.show.request',['id'=>$value->id]) }}" class="btn btn-warning rounded-pill bg-text-light"><i class="fa-regular fa-folder-open"></i></td>
                                   </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
+                                 @endforeach
+
                                 </tbody>
                               </table>
                         </div>

@@ -23,6 +23,7 @@ use App\Http\Livewire\Sitev2\BlogComponent;
 use App\Http\Livewire\Sitev2\LandingPage;
 use App\Http\Livewire\Sitev2\ServiceComponent;
 use App\Http\Livewire\Sitev2\User\NewRequestComponent;
+use App\Http\Livewire\Sitev2\User\ShowNewRequest;
 use App\Http\Livewire\Sitev2\User\UserDashboardComponent;
 use App\Http\Livewire\Sitev2\UserProfileComponent;
 use Illuminate\Support\Facades\Artisan;
@@ -142,6 +143,7 @@ Route::group(
             /*-----------------------------------------------------------------------------------*/
             Route::get('/Dashboard',UserDashboardComponent::class)->name('user.dashboard');
             Route::get('/request/{id}',NewRequestComponent::class)->name('user.request');
+            Route::get('/showRequest/{id}',ShowNewRequest::class)->name('user.show.request');
         });
         /*End Clint Routes*/
 
@@ -157,7 +159,7 @@ Route::group(
         Route::get('cancel-transaction',    [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 
 
-        Route::get('emailshow',[HomeController::class,'emailshow'])->name('emailshow');
+        // Route::get('emailshow',[HomeController::class,'emailshow'])->name('emailshow');
 
 
     });//end of localization

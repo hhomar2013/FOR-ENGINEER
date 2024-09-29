@@ -11,10 +11,13 @@ class UserDashboardComponent extends Component
 
     public $newRequest;
 
+    public function mount(){
+        $this->newRequest  = NewRequest::query()->where('user_id','=',Auth::id())->get();
+    }
 
     public function render()
     {
-        $this->newRequest  = NewRequest::query()->where('user_id','=',Auth::id())->get();
+
         return view('livewire.sitev2.user.user-dashboard-component');
     }
 }
