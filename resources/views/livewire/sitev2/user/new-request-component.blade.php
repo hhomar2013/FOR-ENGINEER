@@ -2,7 +2,7 @@
 <div>
     @if ($show)
     @section('page_title')@include('site_tools_v2.page_title',['no'=>true])@endsection
-    <div class="container-fluid" style="height: 50vh">
+    <div class="container-fluid" style="height: 70vh">
         <div class="col text-center py-5">
             <div class="col-12">
                 <img src="{{ asset('asset/img/success-message.png') }}" alt="" class="w-25 h-50">

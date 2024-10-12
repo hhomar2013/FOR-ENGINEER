@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{config('app.name') .' | ' . $title}}</title>
+    <title>{{config('app.name')}} |  @yield('title')</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom fonts for this template-->
     <link href="{{asset('asset/admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -93,7 +93,7 @@
                 <div class="container-fluid">
 
                     @yield('content')
-
+                    {{-- {{ $slot }} --}}
                 </div>
                 <!-- /.container-fluid -->
 

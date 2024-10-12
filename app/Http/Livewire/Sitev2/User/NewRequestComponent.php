@@ -8,11 +8,13 @@ use App\Models\categories;
 use App\Models\companies_type;
 use App\Models\Company;
 use App\Models\NewRequest;
+use App\Notifications\CompaniesNotifications;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class NewRequestComponent extends Component
 {
@@ -99,6 +101,8 @@ class NewRequestComponent extends Component
         ]);
 
         if ($request) {
+            $companies = Company::query()->where('ct_id',$this->companySelected)->get();
+            Notification::send($companies,new CompaniesNotifications($request->id ,$this->order_title));
             Mail::to(Auth::user()->email)->locale('ar')->send(new MailNewRequest($request));
             $this->show();
         }

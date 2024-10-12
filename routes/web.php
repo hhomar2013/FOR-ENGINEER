@@ -17,6 +17,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MoyasarController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Livewire\CompaniesStatistics;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Sitev2\AboutComponent;
 use App\Http\Livewire\Sitev2\BlogComponent;
@@ -110,7 +111,7 @@ Route::group(
 
         /*Company Routs*/
         Route::group(['middleware' => ['auth:company']],function (){
-            Route::get('/company/dashboard',[CompanyController::class,'index'])->name('admin.dashboard');
+            Route::get('/company/dashboard',CompaniesStatistics::class)->name('admin.dashboard');
             Route::get('/company/profile',[CompanyController::class,'profile'])->name('company.profile');
             Route::get('/company/services',[CompanyController::class,'services'])->name('company.services');
             Route::get('/company/orders',[CompanyController::class,'company_order'])->name('company.orders');

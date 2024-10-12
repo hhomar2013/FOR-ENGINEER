@@ -7,6 +7,7 @@ use App\Models\Company;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\UserMedal;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -45,10 +46,19 @@ class CreateAdminUserSeeder extends Seeder
         ]);
 
          User::create([
-            'name' => 'Super Omar Mahgoub',
-            'email' => 'user@app.com',
-            'password' => bcrypt('123456'),
+            'name' => 'Omar Mahgoub',
+            'email' => 'hhomar2013@gmail.com',
+            'password' => bcrypt('011215'),
              'status'=>1
+        ]);
+
+        UserMedal::create([
+            'name'=>[
+                'ar' =>'عضو جديد',
+                'en' => 'New Commer'
+            ],
+            'img'=>'medals/1.png',
+            'user_id' =>1,
         ]);
 
         companies_type::query()->create([

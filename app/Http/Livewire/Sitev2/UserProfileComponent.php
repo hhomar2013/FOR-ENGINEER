@@ -39,6 +39,7 @@ class UserProfileComponent extends Component
 
         if($query){
             $this->emitSelf('$refresh');
+            $this->emit('refreshUserList');
             session()->flash('message', __('t.Edit_message'));
         }
     }
@@ -54,6 +55,8 @@ class UserProfileComponent extends Component
                 'name' => $this->name,
             ]);
             session()->flash('message',__('t.Edit_message'));
+            $this->emit('refreshUserList');
+
         }
 
     }

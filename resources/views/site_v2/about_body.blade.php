@@ -117,7 +117,7 @@
                 <i class="bi bi-chat-quote flex-shrink-0"></i>
                 <div>
                   {{-- <h4><a href="" class="stretched-link">Nemo Enim</a></h4> --}}
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                  <p>{{ __("Contributing to raising the efficiency of digital transformation by applying best practices, innovations and services to support and implement the initiatives and goals of the Kingdom’s vision 2030.") }}</p>
                 </div>
               </div><!-- End Icon Box -->
 

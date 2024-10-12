@@ -1,4 +1,5 @@
 <div>
+    @section('title') {{ Auth::user()->name }}@endsection
     @include('message')
     {{--    Heding Page--}}
     <div class="d-sm-flex align-items-center justify-content-between mb-4">

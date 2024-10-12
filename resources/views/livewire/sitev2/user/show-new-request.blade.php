@@ -46,7 +46,7 @@
                                                             <i class="fa-solid fa-coins text-start"></i>
                                                         </div>
                                                         <div class="col-4">
-                                                            {{ $showRequest->max_asked_price . ' - ' . $showRequest->min_asked_price }}
+                                                            {{ $showRequest->min_asked_price . ' - ' . $showRequest->max_asked_price}}
                                                         </div>
                                                         <div class="col-4">
                                                            <span> {{ __('SR') }}</span>
@@ -57,11 +57,11 @@
                                         <div class="col-lg-4">
                                             <label for="" class="p-2">{{ __('Implementation period') }}</label>
                                             <div class="bg-light rounded-pill py-2">
-                                                    <div class="row text-center">
-                                                        <div class="col-4 ">
+                                                    <div class="row ">
+                                                        <div class="col-4 text-center">
                                                             <i class="fa-solid fa-calendar-day"></i>
                                                         </div>
-                                                        <div class="col-8 text-end">
+                                                        <div class="col-8 ">
                                                             <span>{{ $showRequest->dayes }}</span>
 
                                                         </div>

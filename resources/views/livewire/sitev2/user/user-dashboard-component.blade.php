@@ -10,23 +10,33 @@
                     <div class="col-12">
                         <div class="bg-white rounded-3 px-3 py-3 text-center">
                             <div class="row">
-                                <div class="col-lg-5">
-                                    <img src="{{ Auth::user()->img != null ? asset('storage/' . Auth::user()->img) : asset('asset/img/team/team-1.jpg') }}" alt="" class="rounded-pill w-50" >
+                                <div class="col-lg-5 pt-2">
+                                    <img src="{{ Auth::user()->img != null ? asset('storage/' . Auth::user()->img) : asset('asset/img/for.gif') }}" alt="" class="rounded-pill w-50 " >
                                 </div>
-                                <div class="col-lg-7">
-                                    <p class="py-3 text-capitalize"><b>{{ Auth::user()->name }}</b></p>
+                                <div class="col-lg-7 pt-3">
+                                    <p class="py-3 text-capitalize text-center"><b>{{ Auth::user()->name }}</b></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 py-3">
-                        {{-- <ul class="list-group rounded-3 text-center">
-                            <li class="list-group-item active" aria-current="true">An active item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item">And a fifth one</li>
-                          </ul> --}}
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title "><i class="fa-solid fa-medal"></i> &nbsp;{{ __('Medals') }} <hr></h5>
+                                <p class="card-text">
+                                    <div class="row">
+                                    @foreach ($medals as $medal )
+                                        <div class="col-lg-4 text-center">
+                                            <img src="{{ asset('storage/' . $medal->img) }}" alt="" class="w-75 h-75">
+                                            <br>
+                                            <b style="font-size: 11px">{{ $medal->name }}</b>
+                                        </div>
+
+                                    @endforeach
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>{{-- End Row --}}
             </div>{{-- End Right --}}
@@ -45,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <p>
-                                            {{ __('Requests in the bidding stage') }}
+                                           <small>{{ __('Requests in the bidding stage') }}</small>
                                         </p>
                                     </div>
                                     <div class="col-6 text-center">
@@ -147,14 +157,23 @@
                                 </thead>
                                 <tbody class="table-group-divider">
                                     <?php $i=1 ?>
-                                 @foreach ($pages as $value )
+                                 @forelse ($pages as $value )
                                  <tr>
                                     <th scope="row">{{ $i++ }}</th>
                                     <td>{{ $value->order_refrence }}</td>
                                     <td>{{ $value->order_title }}</td>
-                                    <td><a href="{{  route('user.show.request',['id'=>$value->id]) }}" class="btn btn-warning rounded-pill bg-text-light"><i class="fa-regular fa-folder-open"></i></td>
+                                    <td><a href="{{  route('user.show.request',['id'=>$value->id]) }}" aria-placeholder="{{ __('Show Comment') }}"
+                                        class="btn text-white rounded-4 bg-text-light" style="background-color:var(--blue-color)">
+                                        <i class="fa-regular fa-folder-open"></i></td>
                                   </tr>
-                                 @endforeach
+                                  @empty
+                                  <tr class="text-center ">
+                                        <td colspan="4" class="text-danger">
+                                            <b>{{ __('No Data') }}</b>
+
+                                        </td>
+                                  </tr>
+                                 @endforelse
 
                                 </tbody>
                               </table>

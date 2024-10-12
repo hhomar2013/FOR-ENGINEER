@@ -60,6 +60,8 @@ class CompaniesStatistics extends Component
             ->pluck('count', 'month_name');
             $labels = $chart->keys();
             $data   = $chart->values();
-        return view('livewire.company.companies-statistics',compact('balance','labels','data','daily_orders','pending_orders'));
+
+        // $title =  auth()->user()->name;
+        return view('livewire.company.companies-statistics',compact('balance','labels','data','daily_orders','pending_orders'))->extends('layouts.company');
     }
 }

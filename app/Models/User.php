@@ -52,4 +52,15 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    /**
+     * Get the user that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function medals()
+    {
+        return $this->belongsTo(UserMedal::class, 'user_id');
+    }
+
+
 }

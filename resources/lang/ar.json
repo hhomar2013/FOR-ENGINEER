@@ -597,7 +597,7 @@
     "Icons":"أيقونات",
     "Under development" :"تحت التطوير",
     "Please select":"برجاء الإختيار",
-    "Requests in the bidding stage" : "طلبات في مرحلة أستقبال العروض",
+    "Requests in the bidding stage" : "مرحلة أستقبال العروض",
     "Orders delivered" :"طلبات تم تسليمها",
     "Cancelled requests" :"طلبات ملغية",
     "Cancelled request" :"طلب ملغي",
@@ -614,5 +614,7 @@
     "Closing date for receiving offers":"تاريخ أنتهاء أستقبال العروض",
     "Day" : "يوم",
     "Tow Dayes" : "يومين",
-    "Dayes" :"أيام"
+    "Dayes" :"أيام",
+    "Medals" :"ألاوسمة",
+    "Contributing to raising the efficiency of digital transformation by applying best practices, innovations and services to support and implement the initiatives and goals of the Kingdom’s vision 2030." :"المساهمة برفع كفاءة التحول الرقمي من خلال تطبيق أفضل الممارسات و الابتكارات و الخدمات  لدعم و تنفيذ المبادرات والاهداف رؤية المملكة 2030"
 }

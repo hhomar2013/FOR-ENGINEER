@@ -12,7 +12,9 @@
 
               <div class="row position-relative">
 
-                <div class="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200"><img src="{{ asset('asset/img/for.gif') }}"></div>
+                <div class="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200">
+                    <img src="{{ asset('asset/img/for4.png') }}">
+                </div>
 
                 <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
                   <h2 class="inner-title">{{ __('For Engineer Platform') }}</h2>
@@ -60,7 +62,7 @@
                   <div class="stats-item d-flex align-items-center w-100 h-100">
                     <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
                     <div>
-                      <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                      <span data-purecounter-start="0" data-purecounter-end="{{ $users }}" data-purecounter-duration="1" class="purecounter"></span>
                       <p>{{ __('t.customer') }}</p>
                     </div>
                   </div>
@@ -70,7 +72,7 @@
                   <div class="stats-item d-flex align-items-center w-100 h-100">
                     <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
                     <div>
-                      <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                      <span data-purecounter-start="0" data-purecounter-end="{{ $requests }}" data-purecounter-duration="1" class="purecounter"></span>
                       <p>{{ __('Projects') }}</p>
                     </div>
                   </div>
@@ -90,7 +92,7 @@
                   <div class="stats-item d-flex align-items-center w-100 h-100">
                     <i class="bi bi-people color-pink flex-shrink-0"></i>
                     <div>
-                      <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                      <span data-purecounter-start="0" data-purecounter-end="{{ $companies }}" data-purecounter-duration="1" class="purecounter"></span>
                       <p>{{ __('Service Providers') }}</p>
                     </div>
                   </div>
@@ -124,7 +126,7 @@
                       <i class="bi bi-chat-quote flex-shrink-0"></i>
                       <div>
                         {{-- <h4><a href="" class="stretched-link">Nemo Enim</a></h4> --}}
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                        <p>{{ __('Contributing to raising the efficiency of digital transformation by applying best practices, innovations and services to support and implement the initiatives and goals of the Kingdom’s vision 2030.') }}</p>
                       </div>
                     </div><!-- End Icon Box -->
 

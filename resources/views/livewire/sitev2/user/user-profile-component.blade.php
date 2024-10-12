@@ -1,5 +1,6 @@
 <div>
 @section('title'){{ __('Profile') }}@endsection
+@include('message')
 @section('page_title')@include('site_tools_v2.page_title',['main_title'=>__('Profile')])@endsection
     <!-- Starter Section Section -->
     <section id="starter-section" class="starter-section section">
@@ -72,3 +73,5 @@
 
       </section><!-- /Starter Section Section -->
 </div>
+
+

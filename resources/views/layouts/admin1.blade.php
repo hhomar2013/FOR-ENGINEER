@@ -137,9 +137,6 @@
 <script src="{{asset("asset/admin/js/sweetalert2@11.js")}}"></script>
 <script  src="{{asset("asset/js/ckeditor5.js")}}"></script>
 <script>
-
-
-
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
