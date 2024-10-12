@@ -72,7 +72,7 @@
     {{-- @yield('content') --}}
     {{ $slot }}
   </main>
-
+  @include('message')
   @include('site_tools_v2.footer')
 
   <a  class="whats-app" href="https://wa.me/+966566626520" target="_blank">
@@ -97,6 +97,20 @@
 
   <!-- Main JS File -->
   <script src="{{ asset('asset/js/main1.js') }}"></script>
+  <script>
+    const Toast = Swal.mixin({
+       toast: true,
+       position: 'top-end',
+       showConfirmButton: false,
+       timer: 3000,
+       timerProgressBar: true,
+       didOpen: (toast) => {
+           toast.addEventListener('mouseenter', Swal.stopTimer)
+           toast.addEventListener('mouseleave', Swal.resumeTimer)
+       }
+       });
+
+</script>
     @stack('js')
     @livewireScripts
 </body>

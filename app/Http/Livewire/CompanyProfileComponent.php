@@ -4,11 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\companies_type;
 use App\Models\Company;
+use App\Traits\Helper;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class CompanyProfileComponent extends Component
 {
+    use Helper;
     use WithFileUploads;
     public $name;
     public $photo;
@@ -87,7 +89,8 @@ class CompanyProfileComponent extends Component
         $this->validate([
             'photo' => 'image|max:2048', // 2MB Max
         ]);
-        $this->fileName = $this->photo->store('CompanyPhotos','public');
+        // $this->fileName = $this->photo->store('CompanyPhotos','public');
+        $this->fileName = $this->ImageUpload($this->photo,'CompanyPhotos');
         $company = Company::find(auth()->id());
         $company->update([
             'logo'=> $this->fileName

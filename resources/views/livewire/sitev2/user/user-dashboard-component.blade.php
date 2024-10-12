@@ -11,7 +11,7 @@
                         <div class="bg-white rounded-3 px-3 py-3 text-center">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <img src="{{ asset('asset/img/team/team-1.jpg') }}" alt="" class="rounded-pill w-50" >
+                                    <img src="{{ Auth::user()->img != null ? asset('storage/' . Auth::user()->img) : asset('asset/img/team/team-1.jpg') }}" alt="" class="rounded-pill w-50" >
                                 </div>
                                 <div class="col-lg-7">
                                     <p class="py-3 text-capitalize"><b>{{ Auth::user()->name }}</b></p>
@@ -147,7 +147,7 @@
                                 </thead>
                                 <tbody class="table-group-divider">
                                     <?php $i=1 ?>
-                                 @foreach ($newRequest as $value )
+                                 @foreach ($pages as $value )
                                  <tr>
                                     <th scope="row">{{ $i++ }}</th>
                                     <td>{{ $value->order_refrence }}</td>
@@ -158,6 +158,9 @@
 
                                 </tbody>
                               </table>
+                        </div>
+                        <div class="card-footer">
+                            {{ $pages->links() }}
                         </div>
 
                     </div>

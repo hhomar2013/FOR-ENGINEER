@@ -126,9 +126,7 @@
                               <button type="submit" wire:click.prevent="sendRequest" class="btn btn-primary rounded-4"> <i class="fa-regular fa-paper-plane"></i>  {{ __('t.Submit') }}</button>
                             </div>
 
-                            <div class="col-12">
-                                <button type="submit" wire:click.prevent="$emitTo('admin-orders', 'get_data')" class="btn btn-danger rounded-4"> <i class="fa-regular fa-paper-plane"></i>  {{ __('t.Submit') }}</button>
-                              </div>
+
 
                             <div wire:loading wire:target="sendRequest" class="spinner-border text-warning" role="status">
                                 <span class="visually-hidden">Loading...</span>

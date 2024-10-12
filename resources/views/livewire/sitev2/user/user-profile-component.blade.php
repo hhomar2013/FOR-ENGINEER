@@ -17,13 +17,13 @@
                             </div>
                             <div class="row g-3 ">
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Password</label>
+                                    <label for="inputPassword4" class="form-label">{{ __('Password') }}</label>
                                     <input type="password" class="form-control" id="inputPassword4">
                                 </div>
                             </div>
                             &nbsp;
                             <div class="col-12">
-                            <button type="submit" class="btn btn-warning ">Sign in</button>
+                            <button type="submit" class="btn btn-warning ">{{ __('t.Submit') }}</button>
                             </div>
                         </form>
                     </div>
@@ -31,7 +31,7 @@
             </div>
 
                         <div class="col-lg-6 shadow p-3">
-                            <form wire:submit.prevent="update_image">
+                            <form >
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col-lg-8">
@@ -58,7 +58,7 @@
 
 
                                         <div class="col-lg-12">
-                                            <button class="btn btn-primary">{{__('t.save')}} <i class="fa fa-save"></i></button>
+                                            <button wire:click.prevent="updateImage" class="btn btn-primary">{{__('t.save')}} <i class="fa fa-save"></i></button>
                                         </div>
                                     </div>
                                 </div>

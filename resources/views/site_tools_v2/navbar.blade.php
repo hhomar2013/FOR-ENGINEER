@@ -59,7 +59,8 @@
         <li><a href="{{ route('register') }}" class="">{{ __('Register') }}</a></li>
         @else
         <li class="dropdown text-secondary"><a href="#">
-            <img src="{{ asset('asset/img/for4.png') }}" class="rounded-circle" style="width: 25px; height: 25px;" alt=""> &nbsp;
+
+            <img src="{{ Auth::user()->img != null ? asset('storage/'.  Auth::user()->img) : asset('asset/img/for4.png') }}" class="rounded-circle" style="width: 25px; height: 25px;" alt=""> &nbsp;
             <span class="text-capitalize">{{ Auth::user()->name }}</span>
              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
