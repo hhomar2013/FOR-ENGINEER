@@ -102,7 +102,7 @@ class NewRequestComponent extends Component
 
         if ($request) {
             $companies = Company::query()->where('ct_id',$this->companySelected)->get();
-            Notification::send($companies,new CompaniesNotifications($request->id ,$this->order_title));
+            Notification::send($companies,new CompaniesNotifications($request->id ,$this->order_title,$this->categories->id));
             Mail::to(Auth::user()->email)->locale('ar')->send(new MailNewRequest($request));
             $this->show();
         }

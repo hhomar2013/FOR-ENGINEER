@@ -3,8 +3,11 @@
 namespace App\Http\Livewire;
 
 use App\Models\account_balance;
+use App\Models\Company;
+use App\Models\NewRequest;
 use App\Models\Order;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use function Symfony\Component\HttpKernel\Log\format;
@@ -12,22 +15,48 @@ use function Symfony\Component\HttpKernel\Log\format;
 class CompaniesStatistics extends Component
 {
     public $month;
-    protected $listeners = ['commentUpdated' => 'WhenCommentUpdated' ,'order_send'=>'playAudio'];
+    protected $listeners = [
+        'send_order_company'=>'order' ,
+        'refresh-company-user'=>'$refresh',
+        'Rows' => 'fetchRows'
+    ];
 
-    public function WhenCommentUpdated()
+
+    public $rows ;
+    public $previousRowCount;
+
+
+    public function mount()
     {
-//        session()->flash('message','You have New Order');
-//        $this->emit('commentUpdated');
-        $this->emit('playAudio');
+        $this->fetchRows();
+        $this->previousRowCount = count($this->rows); // Set initial count
     }
 
-
-    public function play()
+    public function fetchRows()
     {
-        $this->emit('orderSend');
-//        session()->flash('message','You have New Order');
-//        $this->emit('commentUpdated');
+        $user = Company::query()->find(Auth::id());
+
+        $this->rows = NewRequest::query()->where('companies_type_id',$user->ct_id)->latest()->get();
+
+
+        // Check if new row is added
+        if (count($this->rows) > $this->previousRowCount) {
+            // $this->emit('newRowAdded'); // Emit an event if a new row is added
+            $this->dispatchBrowserEvent('send_order_company');
+            $this->dispatchBrowserEvent('send_order_message_company');
+
+        }
+
+        // Update the previous row count
+        $this->previousRowCount = count($this->rows);
     }
+    public function order()
+    {
+        $this->emit('refresh-company-user');
+        $this->emit('company_topbar');
+        $this->emit('Rows');
+    }
+
 
     public function render()
     {

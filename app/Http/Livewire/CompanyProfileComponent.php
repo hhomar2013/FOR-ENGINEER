@@ -95,6 +95,7 @@ class CompanyProfileComponent extends Component
         $company->update([
             'logo'=> $this->fileName
         ]);
+        $this->emit('company_topbar');
         $this->emit('refresh-company-sidebar');
         $this->emit('refresh-company-user');
         $this->emitSelf('$refresh');

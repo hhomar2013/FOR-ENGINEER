@@ -86,7 +86,8 @@
             <div id="content">
 
                 <!-- Topbar -->
-            @include('company.company_tools.topbar')
+            {{-- @include('company.company_tools.topbar') --}}
+            @livewire('company.tools.topbar')
             <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->

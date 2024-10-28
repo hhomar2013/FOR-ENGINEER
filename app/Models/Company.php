@@ -42,10 +42,10 @@ class Company extends Authenticatable
        return $this->belongsTo(companies_type::class,'ct_id');
    }
 
-      public function company_service(): HasMany
-  {
-      return $this->hasMany(companies_service::class,'company_id')->with(['categories']);
-  }
+    public function company_service(): HasMany
+    {
+        return $this->hasMany(companies_service::class,'company_id')->with(['categories']);
+    }
 
 
 

@@ -99,11 +99,11 @@
             <div class="card shadow">
                 <div class="card-body">
                     <div class="row p-3">
-                        <div class="col-6 text-end">
+                        <div class="col-6 {{ app()->getLocale() == 'en' ? 'text-start': 'text-end' }}">
                             <i class="fa-regular fa-bookmark"></i> &nbsp; <span class="text-black-50">{{ $showRequest->order_title }}</span>
                         <hr>
                         </div>
-                        <div class="col-6 text-start">
+                        <div class="col-6 {{ app()->getLocale() == 'ar' ? 'text-start': 'text-end' }}">
                             <i class="fa-regular fa-clock"></i>   <span class="text-black-50">
                                 {{-- {{\Carbon\Carbon::parse($showRequest->created_at)->diffForHumans() }}  --}}
                                 {{ $showRequest->dayeName }}
@@ -132,6 +132,74 @@
                 </div>
             </div>
             @endif
+            <div class="card border-0 shadow  mb-5">
+                <div class="card-body">
+                    <h5 class="card-title p-2"> <i class="fa-solid fa-hand-holding-dollar"></i> &nbsp;{{ __('Offers') }}</h5><hr>
+                    @forelse($offers as $offer)
+                    <div class="p-2 " style="{{ $offer->status == 2 ? 'background-color:var(--green-color) ; color:white;' : ''}} {{ $offer->status == 3 ? 'background-color:var(--red-color) ; color:white;' : '' }}">
+                        <div class="row  p-3 text-sm">
+                            @if($offer->status == 3)
+                                <h1 class="text-center text-light">{{ __('Reject') }}</h1>
+
+                                <div class="col-8 text-end text-decoration-line-through">
+                                    <div class="row">
+                                        <div class="col-lg-3 text-center">
+                                            <img src="{{ $offer->company->logo != null ? asset('storage/' . $offer->company->logo) : asset('asset/img/for4.png') }}" alt="" class=" rounded-pill" style="width:2cm; height: 2cm;">
+                                            <p><b>{{ $offer->company->name }}</b></p>
+                                        </div>
+                                        <div class="col-lg-9 py-3 {{ app()->getLocale() == 'en' ? 'text-start': 'text-end' }}">
+                                            <p><i class="fa-solid fa-money-bill"></i> &nbsp;{{ __('Asking price') }} : {{ $offer->price }} {{ __('SAR') }}</p>
+                                            <p><i class="fa-regular fa-calendar-check"></i>&nbsp;{{ __('Implementation period') }} : {{ $offer->dayes  }} </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                @else
+                                <div class="col-8 text-end">
+                                    <div class="row">
+                                        <div class="col-lg-3 text-center">
+                                            <img src="{{ $offer->company->logo != null ? asset('storage/' . $offer->company->logo) : asset('asset/img/for4.png') }}" alt="" class=" rounded-pill" style="width:2cm; height: 2cm;">
+                                            <p><b>{{ $offer->company->name }}</b></p>
+                                        </div>
+                                        <div class="col-lg-9 py-3 {{ app()->getLocale() == 'en' ? 'text-start': 'text-end' }}">
+                                            <p><i class="fa-solid fa-money-bill"></i> &nbsp;{{ __('Asking price') }} : {{ $offer->price }} {{ __('SAR') }}</p>
+                                            <p><i class="fa-regular fa-calendar-check"></i>&nbsp;{{ __('Implementation period') }} : {{ $offer->dayes  }} </p>
+                                        </div>
+                                    </div>
+                                    <div class=" {{ app()->getLocale() == 'en' ? 'text-start': 'text-end' }} ">
+
+                                        @if ($offer->status == 1)
+                                        @if($offer->where('status',2)->count() == 1)
+                                        @else
+                                        <button class="btn btn-primary rounded-5 " wire:click.prevent="AcceptOffer({{ $offer->id }})"><i class="fa-solid fa-check"></i>&nbsp; {{ __('Accept Offer') }}</button> &nbsp;
+                                        <button class="btn btn-danger rounded-5" wire:click.prevent="RejectOffer({{ $offer->id }})"><i class="fa-solid fa-times"></i>&nbsp; {{ __('Reject Offer') }}</button>
+                                        @endif
+
+
+                                        @endif
+                                    </div>
+
+                                </div>
+                                <div class="col-4 {{ app()->getLocale() == 'ar' ? 'text-start': 'text-end' }}">
+                                    <i class="fa-regular fa-clock"></i>   <span class="text-black-50">
+                                        {{-- {{\Carbon\Carbon::parse($showRequest->created_at)->diffForHumans() }}  --}}
+                                        {{ $showRequest->dayeName }}
+                                    </span>
+                                </div>
+                            @endif
+
+                        </div>
+                    </div>
+                    <hr>
+                    @empty
+
+                    @endforelse
+
+
+
+                </div>
+            </div>
 
         </div>
 
@@ -140,3 +208,13 @@
     </div>
 </div>
 
+
+@push('js')
+    <script>
+        document.addEventListener('livewire:load', () => {
+            @this.on('AcceptOffer' ,function(){
+                    alert('AcceptOffer')
+            });
+        })
+    </script>
+@endpush

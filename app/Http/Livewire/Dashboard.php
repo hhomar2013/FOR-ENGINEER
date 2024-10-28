@@ -8,6 +8,7 @@ use App\Models\NewRequest;
 use App\Models\Order;
 use App\Models\service_provider_reservation;
 use App\Models\site_tresury;
+use App\Traits\Helper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -17,6 +18,7 @@ use function Symfony\Component\HttpKernel\Log\format;
 class Dashboard extends Component
 {
     use WithPagination;
+    use Helper;
     public $search='';
     public $orders;
     public $shouldPlayAudio;

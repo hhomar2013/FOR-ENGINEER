@@ -146,7 +146,7 @@
                             <h5 class="p-2 text-light">{{ __('Your Orders') }}</h5>
                         </div>
                         <div class="card-body">
-                            <table class="table table-hover table-striped table-bordered  table-responsive-sm">
+                            <table class="table table-hover table-striped table-bordered  table-responsive-sm table-sm">
                                 <thead>
                                   <tr>
                                     <th scope="col">#</th>

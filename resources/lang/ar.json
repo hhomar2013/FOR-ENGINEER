@@ -612,9 +612,10 @@
     "New Request":"طلب جديد",
     "Asking price":"السعر المطلوب",
     "Closing date for receiving offers":"تاريخ أنتهاء أستقبال العروض",
-    "Day" : "يوم",
+    "Day" : "يوم واحد",
     "Tow Dayes" : "يومين",
     "Dayes" :"أيام",
     "Medals" :"ألاوسمة",
-    "Contributing to raising the efficiency of digital transformation by applying best practices, innovations and services to support and implement the initiatives and goals of the Kingdom’s vision 2030." :"المساهمة برفع كفاءة التحول الرقمي من خلال تطبيق أفضل الممارسات و الابتكارات و الخدمات  لدعم و تنفيذ المبادرات والاهداف رؤية المملكة 2030"
+    "Contributing to raising the efficiency of digital transformation by applying best practices, innovations and services to support and implement the initiatives and goals of the Kingdom’s vision 2030." :"المساهمة برفع كفاءة التحول الرقمي من خلال تطبيق أفضل الممارسات و الابتكارات و الخدمات  لدعم و تنفيذ المبادرات والاهداف رؤية المملكة 2030",
+    "Offers":"العروض"
 }

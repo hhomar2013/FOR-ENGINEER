@@ -1,4 +1,4 @@
-<div>
+<div wire:poll="order">
     @section('title') {{ Auth::user()->name }}@endsection
     @include('message')
     {{--    Heding Page--}}
@@ -11,29 +11,6 @@
     {{-- <button class="btn btn-primary" wire:click="play">paly</button> --}}
     </div>
 
-{{--    <div class="input-group">--}}
-{{--            <div class="dropdown no-arrow p-3">--}}
-{{--                <a class="dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownMenuLink"--}}
-{{--                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                    <i class="fas fa-calendar-alt"></i>--}}
-
-{{--                 {{__('t.filter')}}--}}
-{{--                </a>--}}
-{{--                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"--}}
-{{--                     aria-labelledby="dropdownMenuLink">--}}
-{{--                    <div class="dropdown-header">Dropdown Header:</div>--}}
-{{--                    @forelse($labels as $label)--}}
-{{--                        <a class="dropdown-item" href="#" wire:model="month"> <i class="fas fa-dot-circle"></i> {{$label}}</a>--}}
-{{--                    @empty--}}
-{{--                        <a class="dropdown-item text-danger">   {{__('No Data')}}</a>--}}
-{{--                    @endforelse--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
-{{--    </div>--}}
-    {{--End of Heading Page--}}
-
-    {{--    Content--}}
 <!-- Content Row -->
     <div class="row">
 
@@ -106,20 +83,6 @@
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">{{__('Earnings Overview')}}</h6>
-                    {{--                <div class="dropdown no-arrow">--}}
-                    {{--                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"--}}
-                    {{--                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-                    {{--                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>--}}
-                    {{--                    </a>--}}
-                    {{--                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"--}}
-                    {{--                         aria-labelledby="dropdownMenuLink">--}}
-                    {{--                        <div class="dropdown-header">Dropdown Header:</div>--}}
-                    {{--                        <a class="dropdown-item" href="#">Action</a>--}}
-                    {{--                        <a class="dropdown-item" href="#">Another action</a>--}}
-                    {{--                        <div class="dropdown-divider"></div>--}}
-                    {{--                        <a class="dropdown-item" href="#">Something else here</a>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -135,31 +98,30 @@
 
                                 </div>
                             </div>
-
-
                         @endif
 
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
 
     {{--End of   Content--}}
 </div>
 
-<script>
-    document.addEventListener("livewire:load", () => {
-        @this.on('commentUpdated', () => {
-            new Audio("{{url('asset/img/new-not.mp3')}}").play();
-        })
-    });
-</script>
 @section('js')
+<script>
+    window.addEventListener('send_order_company', (event) => {
+        new Audio("{{url('storage/sound/notification.mp3')}}").play();
+    })
+</script>
+
+<script>
+       window.addEventListener('send_order_message_company' , (event)=> {
+        Toast.fire({icon: 'success',title:'{{ __("You Have New Order") }}'});
+    })
+</script>
+
     <script src="{{asset('asset/admin/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('asset/admin/js/demo/chart-pie-demo.js')}}"></script>
     <script>

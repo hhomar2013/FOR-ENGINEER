@@ -12,13 +12,13 @@ class requestOffers extends Model
     protected $guarded=[];
 
 
-    /**
-     * Get the user that owns the requestOffers
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function NewRequests()
+    public function requestInfo()
     {
         return $this->belongsTo(NewRequest::class, 'nr_id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }
