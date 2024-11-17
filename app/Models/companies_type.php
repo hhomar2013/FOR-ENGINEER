@@ -9,8 +9,9 @@ use Spatie\Translatable\HasTranslations;
 
 class companies_type extends Model
 {
-    use HasFactory,SoftDeletes ;
+    use HasFactory,SoftDeletes,HasTranslations ;
     protected $guarded =[];
+    public $translatable = ['name'];
     // public $translatable = ['name'];
 
 }

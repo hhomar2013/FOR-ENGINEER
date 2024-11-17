@@ -26,8 +26,9 @@
                                 <p class="card-text">
                                     <div class="row">
                                     @foreach ($medals as $medal )
-                                        <div class="col-lg-4 text-center">
-                                            <img src="{{ asset('storage/' . $medal->img) }}" alt="" class="w-75 h-75">
+                                        <div class="col-3 text-center">
+                                            <img src="{{ asset('storage/' . $medal->img) }}"
+                                             alt="" style="max-width: 1cm; max-height: 1cm">
                                             <br>
                                             <b style="font-size: 11px">{{ $medal->name }}</b>
                                         </div>

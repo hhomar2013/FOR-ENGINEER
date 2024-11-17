@@ -23,6 +23,35 @@
 
                         @endforelse
                     </select>
+
+
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                <label>{{ __('Icons') }}</label>
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                @forelse($icon as $key => $value)
+                                <div class="btn-group  py-2 px-2" role="group" aria-label="Basic radio toggle button group">
+                                    <input class="btn-check" wire:model="icons" value="{{ $key }}" autocomplete="off"  type="radio" name="icons" id="{{ $key }}">
+                                    <label class="btn btn-outline-dark" for="{{ $key }}">
+                                       {{ $value }}
+                                       <span class="material-icons"><i class="material-icons {{ $value }}"></i>{{ $value }}</span>
+                                    </label>
+                                </div>
+                                @empty
+
+                                @endforelse
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
                     </div>
                     <div class="col-lg-6">
                         <div wire:ignore>

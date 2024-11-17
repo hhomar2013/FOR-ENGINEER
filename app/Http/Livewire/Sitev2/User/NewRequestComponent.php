@@ -8,6 +8,7 @@ use App\Models\categories;
 use App\Models\companies_type;
 use App\Models\Company;
 use App\Models\NewRequest;
+use App\Models\UserMedal;
 use App\Notifications\CompaniesNotifications;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -86,6 +87,17 @@ class NewRequestComponent extends Component
         }
 
         $this->validate();
+        $count = NewRequest::query()->where('user_id',Auth::id())->count();
+        if($count == 0){
+        UserMedal::query()->create([
+            'user_id'=>Auth::id(),
+            'img' =>'medals/3.png',
+            'name' => [
+                'ar'=>'أول طلب',
+                'en' =>'First Order',
+            ]
+        ]);
+        }
         $request = NewRequest::query()->create([
             'order_refrence' => rand(1000,9999),
             'order_title' => $this->order_title,
@@ -101,6 +113,7 @@ class NewRequestComponent extends Component
         ]);
 
         if ($request) {
+
             $companies = Company::query()->where('ct_id',$this->companySelected)->get();
             Notification::send($companies,new CompaniesNotifications($request->id ,$this->order_title,$this->categories->id));
             Mail::to(Auth::user()->email)->locale('ar')->send(new MailNewRequest($request));

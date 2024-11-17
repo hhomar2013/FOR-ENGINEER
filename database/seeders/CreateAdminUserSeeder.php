@@ -62,11 +62,17 @@ class CreateAdminUserSeeder extends Seeder
         ]);
 
         companies_type::query()->create([
-            'name'=>'شركات و مكاتب',
+            'name'=>[
+                'ar'=>'شركات و مكاتب',
+                'en' =>'Companies & Offices'
+            ],
             'status'=>1,
         ]);
         companies_type::query()->create([
-            'name'=>'مهندسون مستقلون',
+            'name'=>[
+                'ar'=>'مهندسون مستقلون',
+                'en'=>'Engineers'
+            ],
             'status'=>1,
         ]);
 

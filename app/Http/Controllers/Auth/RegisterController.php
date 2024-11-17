@@ -8,6 +8,7 @@ use App\Models\clints;
 use App\Models\customer;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\UserMedal;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -87,12 +88,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'status'=>1
+            'status'=>1,
+
         ]);
+
+        UserMedal::query()->create([
+            'user_id'=>$user->id,
+            'img'=>'medals/1.png',
+            'name' =>[
+                'ar'=>'عضو جديد',
+                'en' =>'New Commer'
+            ]
+        ]);
+        return $user;
     }
 
     public function showAdminRegisterForm()
