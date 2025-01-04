@@ -4,13 +4,6 @@
 <div class="container" >
     <div class="row justify-content-center ">
         <div class="col-lg-5 col-md-7 login-card " style="">
-{{--            <div class="card">--}}
-{{--                <div class="card-header text-center bg-transparent">{{ __('t.welcome') }}</div>--}}
-
-{{--                <div class="card-body">--}}
-{{--                   --}}
-{{--                </div>--}}
-{{--            </div>--}}
             <br>
             <div class=" text-center bg-transparent p-3">{{ __('t.welcome') }}</div>
                     @isset($route)
@@ -55,6 +48,12 @@
                                         </label>
 
                                     </div>
+                                </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <br>
+                                    <a class="text-secondary" href="{{ route('password.request') }}">
+                                        {{ __("Forgot your password?") }}
+                                    </a>
                                 </div>
                             </div>
 

@@ -69,6 +69,12 @@ Route::group(
         Route::get('/service/show/{id}', ServiceComponent::class)->name('site.service.show');
 //        Auth::routes(['verify'=>true]);
         Auth::routes();
+        Route::get('/forgot-password', function () {
+            return view('auth.passwords.email');
+        })->middleware('guest')->name('password.request');
+
+
+
         Route::get('/cp',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
         Route::post('/cp',[LoginController::class,'adminLogin'])->name('admin.login');
         Route::get('/admin/register',[RegisterController::class,'showAdminRegisterForm'])->name('admin.register-view');
